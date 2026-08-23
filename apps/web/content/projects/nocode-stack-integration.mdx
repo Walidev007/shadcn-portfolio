@@ -12,15 +12,27 @@ tags:
   - label: Tally
 ---
 
-Across my automation projects, a recurring piece of work is choosing and wiring together the right no-code/low-code data and interface layer for a client — not just the workflow engine, but where the data lives and how people interact with it.
+Across my automation projects at WIDO, a recurring piece of work is choosing and wiring together the right no-code/low-code data and interface layer for a client — not just the workflow engine, but where the data lives and how people interact with it.
 
 ## Context
 
-Clients often needed a lightweight database, an internal knowledge base, or a public-facing form without the budget or need for a custom-built backend. The challenge was picking tools that were simple enough for the client's team to use directly, while still integrating cleanly with the automation layer (n8n/Make) driving the rest of the workflow.
+Clients typically needed one of the following, without the budget or need for a custom-built backend:
+
+- a lightweight, structured database their own team could edit
+- an internal knowledge base or process reference
+- a public-facing form to collect leads or requests
+
+## Problem
+
+Meeting these needs without a dedicated developer on the client side made it hard to:
+
+- **store structured data** without building or maintaining a custom database
+- **keep a single source of truth** for process knowledge that was otherwise scattered or nonexistent
+- **avoid manual re-entry** between public-facing intake and the automated backend
 
 ## My Role
 
-I select, configure, and integrate the no-code/low-code data and interface tools for each project, and make sure they connect reliably to the automations and AI agents I build on top of them.
+Selecting, configuring, and integrating the no-code/low-code data and interface tools for each project, and making sure they connect reliably to the automations and AI agents built on top of them.
 
 ## Problems Encountered
 
@@ -30,14 +42,20 @@ I select, configure, and integrate the no-code/low-code data and interface tools
 
 ## Solutions Built
 
-- Used Airtable or Supabase as the structured data layer depending on the project's complexity — Airtable for lighter, client-editable datasets; Supabase when the project needed a real relational database with API access.
-- Set up Notion as the shared documentation and process hub so both the client team and the automations had one reference point for how a workflow was supposed to behave.
-- Built intake forms with Jotform, Tally, or Fillout that fed directly into the automation pipeline via webhook, removing manual re-entry between form submission and CRM/database update.
-- Used Xano where a project needed backend logic and an API layer beyond what Airtable/Supabase offered natively.
+**Data layer.** Used Airtable or Supabase as the structured data layer depending on the project's complexity — Airtable for lighter, client-editable datasets; Supabase when the project needed a real relational database with API access.
 
-## Results
+**Documentation hub.** Set up Notion as the shared documentation and process hub so both the client team and the automations had one reference point for how a workflow was supposed to behave.
 
-Clients ended up with a data and documentation layer they could maintain themselves, fully wired into their automations — removing the manual step of transcribing form submissions or notes into their systems of record.
+**Intake.** Built intake forms with Jotform, Tally, or Fillout that fed directly into the automation pipeline via webhook, removing manual re-entry between form submission and CRM/database update.
+
+**Backend logic.** Used Xano where a project needed backend logic and an API layer beyond what Airtable/Supabase offered natively.
+
+## Business Value Delivered
+
+- **A maintainable data layer** — clients can view and adjust their own data without a developer.
+- **One source of truth** — process documentation and automation logic reference the same place.
+- **No manual re-entry** — form submissions flow straight into the client's systems of record.
+- **Room to scale** — Xano available as a fallback when a project outgrows what no-code databases can handle.
 
 ## Technical Stack & Why Each Tool Was Selected
 

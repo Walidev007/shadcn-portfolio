@@ -13,39 +13,57 @@ tags:
   - label: REST APIs
 ---
 
-At WIDO I work as a freelance AI & Automation Consultant and product builder, helping small and mid-sized businesses turn manual, repetitive work into reliable automations and AI agents.
+At WIDO, I work as a freelance AI & Automation Consultant helping small and mid-sized businesses turn manual, repetitive work into reliable automations and AI agents.
 
 ## Context
 
-Most of the businesses I work with run their day-to-day operations across a patchwork of tools — a CRM, an ERP or invoicing tool, a couple of SaaS apps, spreadsheets, email. Nothing talks to anything else, so someone on the team spends hours a week copying data between systems, re-entering leads, or manually triaging incoming requests. None of that was documented anywhere; it lived in people's heads and habits.
+Most of the businesses I work with run their day-to-day operations across a patchwork of tools, including:
+
+- a CRM or ERP for customer and business data
+- one or more SaaS tools for specific functions (invoicing, support, scheduling)
+- spreadsheets and email for anything the other tools don't cover
+
+None of these systems talked to each other, and someone on the team spent hours a week manually moving data between them — re-entering leads, triaging requests, or rebuilding reports by hand.
+
+## Problem
+
+The existing way of working made it hard to:
+
+- **document what the actual process was** — steps lived in people's heads, not in any diagram or spec
+- **connect existing tools** — CRM, ERP, and SaaS systems had no integration between them
+- **trust an AI-driven solution** — teams had no prior experience with AI agents or automation platforms
+- **express some workflow logic** — conditional branching, data transformation, and retries went beyond what pure no-code tools could handle
 
 ## My Role
 
-I own these engagements end-to-end: I run the discovery and framing workshops, map the client's processes, design the automation or AI agent, build and configure it, test it against real data, document it, and train the team that will use and maintain it. I'm the single point of contact from first workshop to handover.
+Product builder and AI & Automation Consultant, owning each engagement end-to-end: discovery and framing workshops, process mapping, automation/agent design, build and configuration, testing, documentation, and team training.
 
 ## Problems Encountered
 
-- Business processes existed only as tribal knowledge — no diagrams, no documented steps, no ownership.
-- Tools were disconnected: leads captured in one system never reached the CRM without manual entry; reports were rebuilt by hand every week.
-- Teams had no experience with AI agents or automation platforms, so any solution also had to be something they could understand and trust enough to rely on.
-- Some workflows needed logic (conditional branching, data transformation, retries) that pure no-code tools couldn't express cleanly.
+- Business processes existed only as tribal knowledge, with no diagrams, documented steps, or clear ownership.
+- Leads captured in one system never reached the CRM without manual entry, and reports were rebuilt by hand every week.
+- Non-technical teams needed a solution they could understand and trust enough to rely on day to day.
+- Some workflows needed logic that pure no-code tools couldn't express cleanly.
 
 ## Solutions Built
 
-- Ran structured process-mapping and framing workshops with each client to surface the actual steps in their workflow and flag which ones were repetitive enough to automate.
-- Designed and configured AI agents and automated workflows connecting the client's CRM, ERP, and SaaS tools via REST APIs, webhooks, and JSON payloads — covering use cases like lead qualification, automated reporting, and document/email triage.
-- Used LLMs (Claude, ChatGPT, Gemini) inside these workflows for tasks that need reasoning or language understanding rather than pure rule-following: classifying incoming requests, drafting responses, summarizing documents.
-- Wrote custom Python and JavaScript steps where the no-code platforms' built-in logic wasn't enough.
-- Tested each automation against real data before going live, then wrote documentation and delivered hands-on training so the client's team could operate and adjust the automation without me.
+**Discovery.** Ran structured process-mapping and framing workshops with each client to surface the real steps in their workflow and flag which ones were repetitive enough to automate.
 
-## Results
+**Build.** Designed and configured AI agents and automated workflows connecting the client's CRM, ERP, and SaaS tools via REST APIs, webhooks, and JSON payloads — covering use cases like lead qualification, automated reporting, and document/email triage. Used LLMs (Claude, ChatGPT, Gemini) inside these workflows for tasks that need reasoning or language understanding rather than pure rule-following, and wrote custom Python and JavaScript steps where the no-code platforms' built-in logic wasn't enough.
 
-Clients moved from manual, error-prone steps to automations that run unattended and are visible/documented for the team — freeing hours per week previously spent on copy-paste work, and giving non-technical staff the confidence to request changes or extend the workflows themselves after training.
+**Handover.** Tested each automation against real data before going live, then wrote documentation and delivered hands-on training so the client's team could operate and adjust the automation without me.
+
+## Business Value Delivered
+
+- **Hours saved per week** — manual copy-paste and re-entry work removed from day-to-day operations.
+- **Documented, visible processes** — automations run unattended but stay understandable to the client's team.
+- **Team autonomy** — non-technical staff trained to request changes and extend workflows themselves.
+- **Reliable integrations** — CRM, ERP, and SaaS tools now share data automatically instead of manually.
 
 ## Technical Stack & Why Each Tool Was Selected
 
-- **n8n / Make** — visual, low-code workflow orchestration. Chosen because they let me build and iterate fast, and because the resulting workflows are readable enough that I can hand them off to a client's team instead of leaving them dependent on me.
+- **n8n / Make** — visual, low-code workflow orchestration. Chosen because they let me build and iterate fast, and because the resulting workflows are readable enough to hand off to a client's team instead of leaving them dependent on me.
 - **Power Automate** — used specifically for clients already invested in Microsoft 365, where it integrates natively with Outlook, SharePoint, and Teams without extra connectors.
-- **Claude Code, ChatGPT, Gemini, Codex** — LLM engines plugged into the workflows for reasoning, classification, and content generation steps that rule-based logic can't handle.
+- **Claude Code, ChatGPT, Gemini, Codex** — LLM engines plugged into the workflows for reasoning, classification, and content-generation steps that rule-based logic can't handle.
 - **Python / JavaScript** — for custom logic (data transformation, edge-case handling) that exceeds what the no-code tools' native nodes support.
 - **REST APIs, webhooks, JSON** — the integration layer tying together the client's existing CRM/ERP/SaaS stack, chosen because they're the lowest-friction way to connect systems that were never designed to talk to each other.
