@@ -75,7 +75,7 @@ export default async function ProjectPage(props0: {
           width={1280}
           height={832}
           alt={`Image of ${page.data.title}`}
-          className="my-12 aspect-video h-auto w-full rounded-lg object-cover"
+          className="my-12 h-auto w-full rounded-lg"
         />
         <div className="prose min-w-full">
           <MDXContent

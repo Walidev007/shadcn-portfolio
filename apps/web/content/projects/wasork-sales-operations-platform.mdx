@@ -51,7 +51,13 @@ These limitations slowed down operation preparation and made it harder to follow
 
 ## My Role
 
-Product owner and no-code product builder, full scope: functional design, cost/subscription estimation for the client, data modeling, workflow automation, frontend build, and client-facing delivery and onboarding. I was the only person building this, end to end.
+I led this engagement solo, across three distinct roles:
+
+- **Product Owner** — auditing the client's existing process, framing the MVP scope, and estimating the project cost and ongoing subscription fees before any commitment was made.
+- **No-Code Product Builder** — designing the data model and business rules, building the Airtable/Softr/Make architecture, and developing the document-generation workflow.
+- **Client-facing Consultant** — running validation sessions at each milestone, training the client on the delivered system, and handling support through go-live.
+
+There was no team behind me on this project — discovery, build, and delivery were all mine to own.
 
 ## Problems Encountered
 
@@ -63,30 +69,28 @@ Product owner and no-code product builder, full scope: functional design, cost/s
 
 ## Solutions Built
 
-**Step 1 — Audit & framing.** Acted as product owner for this phase: audited the client's existing manual process piece by piece, logged every requirement and decision in a dedicated Notion workspace, defined the MVP scope, planned every build step, estimated the full cost upfront (my service fee plus the tool subscriptions the client would need to pay for), and produced functional designs — schemas and flow diagrams — before any development started.
+The engagement moved through four phases, each combining project-management discipline with hands-on product building.
 
-**Step 2 — Development & implementation.** Built the Airtable base: tables, relational links, and scripts, with solid documentation, evolving it with small incremental changes as the client's requirements were refined during the build rather than re-architecting from scratch each time. In parallel, gathered and set up the accounts and logins needed across the automation toolchain (Softr, Make, DocsAutomator) so the integrations could go live without credential gaps mid-build.
+**1. Framing — Project Management.** Audited the client's existing manual process piece by piece and logged every requirement and decision in a dedicated Notion workspace. Defined the MVP scope, planned every build step, and estimated the full cost upfront — my service fee plus the tool subscriptions the client would need to pay for. Produced functional designs — schemas and flow diagrams — before any development started, so the client was committing to a defined plan, not an open-ended build.
 
-**Difficulties and how they were resolved:**
+**2. Early validation — Product Building.** Rather than build the full system against a spec the client couldn't picture, I spent one day building a throwaway frontend MVP so he could *see* the direction early. Once we'd walked through it and resolved his questions, I moved to the real Softr build with confidence that the direction was validated.
 
-- The client couldn't visualize an abstract system from a spec alone — he had no mental picture of what was being built. I spent one day building a throwaway frontend MVP specifically so he could *see* the direction early. Once we'd discussed the details and answered his questions against that prototype, I integrated the validated frontend properly using Softr's real components and functions.
-- Some elements didn't behave as expected in the MVP frontend — specifically, certain charts (sales quantity by seller and by hour interval, broken down by category) couldn't be built directly in Softr due to a hard tool limitation. Rather than compromise the workflow the client had already validated, I built custom scripts that fetched and shaped the exact data he needed by date interval and data type, as a workaround.
-- Review cycles were slow by nature of the client's process: he needed time to check every delivery — the database structure, the Softr frontend, the seeded product/sales data. I planned the whole build around this and kept a continuous discussion going so each part was validated in sequence rather than delivered as one big drop.
-- The client wanted branded invoices and quotes but didn't have templates for the new company — only examples from his previous role. I took those examples and turned them into reusable templates. The document-generation tool then turned out to have a payload structure requirement (unlike a simpler tool such as Google Docs) that its own documentation described incompletely. I had to make sure the JSON payload sent from the Make node matched the tool's expected object structure, contacted the vendor's support, and used Claude Code to help write the script that transformed my payload into the correct structure. I mapped the data inside the Make workflow node, built dedicated routes per document type, tested them, and verified output against the tool's own logs.
-- Documented everything as it was solved: the payload structure, template placeholders, conditional show/hide sections, and calculation formulas — so the system stays maintainable without me.
+**3. Core build — Product Building.** Built the Airtable base — tables, relational links, and scripts — with solid documentation, evolving it through small, incremental changes as requirements were refined rather than re-architecting from scratch each time. In parallel, set up the accounts and logins across the automation toolchain (Softr, Make, DocsAutomator) so integrations could go live without credential gaps mid-build.
 
-**Delivery.** Linked the document-generation tool into Softr buttons, wiring each one to trigger the corresponding Make workflow. Took the time to live-test the full system and present it to the client page by page, feature by feature, before final validation. The client validated the tool and paid the final part of the cost.
+**4. Difficulties — Product Building.** Two technical issues came up during the build and were solved directly:
+
+- Softr couldn't natively render some of the charts the client needed (sales quantity by seller and by hour interval, broken down by category) — a hard tool limitation. I built custom scripts to fetch and shape the exact data by date interval and data type, without changing the workflow already validated with the client.
+- The client had no branded templates for his new company, only examples from his previous role. I turned those into reusable templates, then had to reverse-engineer the correct JSON payload structure for DocsAutomator against incomplete vendor documentation — contacting their support and using Claude Code to help write the transformation script. I mapped the data inside the Make workflow, built dedicated routes per document type, and tested against the tool's own logs until output was reliable. Everything solved was documented: payload structure, template placeholders, conditional logic, and calculation formulas.
+
+**5. Delivery — Project Management.** Sequenced the rollout around the client's own pace of review — he needed time to check each delivery (database structure, Softr screens, seeded data) before validating the next step, so I planned the schedule and kept a continuous discussion running instead of dropping the whole system at once. Linked the document-generation tool into Softr buttons, wired to trigger the corresponding Make workflows, then live-tested the full system and presented it to the client page by page, feature by feature. The client validated the delivery and paid the final part of the cost.
 
 ## Business Value Delivered
 
 The client went from a fully manual process (Airtable forms + email) to a fully integrated no-code system:
 
-- **A real database** — replacing scattered Airtable forms and email threads with a single structured source of truth.
-- **A modern, tablet- and mobile-friendly frontend** — usable on the floor during operations, not just at a desk.
-- **Invoice and quote generation from his own templates** — branded documents produced automatically instead of built by hand.
-- **User and brand management** — every brand and user accounted for in one system instead of tracked informally.
-- **Sales briefs with full versioning** — every detail and change to a brief tracked and historized.
-- **A delivered, adopted MVP** — the client was onboarded and can now use the system and make changes himself, in both Softr and Airtable.
+- **One centralized system** — a real database and a modern, tablet- and mobile-friendly frontend replacing scattered Airtable forms and email threads, usable on the floor during operations.
+- **Automated, traceable documents** — branded invoices and quotes generated from his own templates instead of built by hand, with sales briefs fully versioned to track every change.
+- **A delivered, adopted MVP** — the client was onboarded and can now use the system and make changes himself, in both Softr and Airtable, with users and brands managed directly in the platform.
 
 - **Full centralization of operations** — every brief, quote, addendum, and invoice lives in one system instead of scattered forms and email threads.
 - **Reduced sales-preparation time** — briefs, quotes, and addenda are generated and updated in minutes instead of manual back-and-forth.

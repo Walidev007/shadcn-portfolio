@@ -30,7 +30,7 @@ const Header = () => {
           href="/"
           className="text-md inline-flex items-center justify-center font-semibold"
         >
-          {meta.author.name}
+          Walid MECHERI
         </MotionLink>
         <div onClick={() => setIsActive(!isActive)} className={styles.el}>
           <div className={styles.label}>

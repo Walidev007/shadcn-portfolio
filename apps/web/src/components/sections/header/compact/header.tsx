@@ -82,7 +82,7 @@ export default function Header() {
             href="/"
             className="text-md inline-flex items-center justify-center font-semibold"
           >
-            {meta.author.name}
+            Walid MECHERI
           </Link>
 
           <button className="md:hidden" onClick={toggleMenu}>
