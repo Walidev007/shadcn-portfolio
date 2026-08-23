@@ -15,8 +15,7 @@ function Hero() {
         <div className="relative flex h-full flex-col items-center justify-center">
           <div className="flex w-full items-center justify-center px-4 md:px-6">
             <h1 className="text-4xl font-light sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl">
-              <span>A </span>
-              <span>developer</span>
+              <span>A consultant</span>
               <br />
               <span className="flex items-center gap-2 md:gap-4">
                 <span>Who</span>
@@ -26,11 +25,11 @@ function Hero() {
                   }
                 >
                   <span className="absolute inset-0 flex items-center justify-center text-4xl select-none md:text-7xl">
-                    ❤️
+                    🤖
                   </span>
                 </span>
                 <span>to</span>
-                <span>code</span>
+                <span>automate</span>
               </span>
             </h1>
           </div>

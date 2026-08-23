@@ -1,30 +1,18 @@
 import type { Technology } from "@/types/technology";
 
 const technologies: Technology[] = [
-  {
-    name: "HTML",
-    image: "/images/person/janedoe.jpg",
-  },
-  {
-    name: "CSS",
-    image: "/images/person/emilysmith.jpg",
-  },
-  {
-    name: "Javascript",
-    image: "/images/person/michaeljohnson.jpg",
-  },
-  {
-    name: "React",
-    image: "/images/person/michaeljohnson.jpg",
-  },
-  {
-    name: "Next.js",
-    image: "/images/person/michaeljohnson.jpg",
-  },
-  {
-    name: "Python",
-    image: "/images/person/michaeljohnson.jpg",
-  },
+  { name: "n8n" },
+  { name: "Make" },
+  { name: "Power Automate" },
+  { name: "Claude Code" },
+  { name: "ChatGPT" },
+  { name: "Gemini" },
+  { name: "Python" },
+  { name: "JavaScript" },
+  { name: "Airtable" },
+  { name: "Notion" },
+  { name: "Supabase" },
+  { name: "Jira" },
 ];
 
 export { technologies };

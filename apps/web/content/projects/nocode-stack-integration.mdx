@@ -1,0 +1,48 @@
+---
+title: No-Code & Low-Code Tool Stack Integration
+description: Building an integrated day-to-day toolchain (Airtable, Notion, Supabase, Xano, form tools) to support client automation projects.
+date: 2025-11-01
+website: https://www.widocode.com/
+tags:
+  - label: Airtable
+  - label: Notion
+  - label: Supabase
+  - label: Xano
+  - label: Jotform
+  - label: Tally
+---
+
+Across my automation projects, a recurring piece of work is choosing and wiring together the right no-code/low-code data and interface layer for a client — not just the workflow engine, but where the data lives and how people interact with it.
+
+## Context
+
+Clients often needed a lightweight database, an internal knowledge base, or a public-facing form without the budget or need for a custom-built backend. The challenge was picking tools that were simple enough for the client's team to use directly, while still integrating cleanly with the automation layer (n8n/Make) driving the rest of the workflow.
+
+## My Role
+
+I select, configure, and integrate the no-code/low-code data and interface tools for each project, and make sure they connect reliably to the automations and AI agents I build on top of them.
+
+## Problems Encountered
+
+- Clients needed structured data storage without a dedicated developer to maintain a custom database.
+- Internal documentation and process knowledge was scattered or nonexistent, making it hard for automations to reference a single source of truth.
+- Public-facing intake needed to be simple to fill out but still feed cleanly into the automated backend, without manual re-entry.
+
+## Solutions Built
+
+- Used Airtable or Supabase as the structured data layer depending on the project's complexity — Airtable for lighter, client-editable datasets; Supabase when the project needed a real relational database with API access.
+- Set up Notion as the shared documentation and process hub so both the client team and the automations had one reference point for how a workflow was supposed to behave.
+- Built intake forms with Jotform, Tally, or Fillout that fed directly into the automation pipeline via webhook, removing manual re-entry between form submission and CRM/database update.
+- Used Xano where a project needed backend logic and an API layer beyond what Airtable/Supabase offered natively.
+
+## Results
+
+Clients ended up with a data and documentation layer they could maintain themselves, fully wired into their automations — removing the manual step of transcribing form submissions or notes into their systems of record.
+
+## Technical Stack & Why Each Tool Was Selected
+
+- **Airtable** — chosen for lightweight, client-editable datasets where a spreadsheet-like interface lowers the barrier for non-technical teams to view and adjust their own data.
+- **Supabase** — used instead of Airtable when the project needed a real relational database with proper API access and scale beyond what a spreadsheet-style tool supports.
+- **Notion** — selected as the documentation hub because it's flexible enough to hold both process documentation and lightweight databases in one place the client's team already understood.
+- **Xano** — brought in specifically when a project needed custom backend logic and an API layer that no-code database tools alone couldn't provide.
+- **Jotform / Tally / Fillout** — chosen for public-facing intake because they support direct webhook integration, letting form submissions flow straight into the automation pipeline instead of needing manual transcription.

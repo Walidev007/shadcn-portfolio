@@ -2,22 +2,25 @@ import type { Metadata } from "@/types/metadata";
 
 const metadata: Metadata = {
   author: {
-    name: "John Doe",
-    username: "johndoe",
-    label: "Designer & Developer",
+    name: "Walid Mecheri",
+    username: "widocode",
+    label: "Consultant IA & Automatisation",
   },
   site: {
-    title: "John Doe",
-    description: "Portfolio of web & UI designer/developer John Doe.",
-    url: "https://www.example.com",
+    title: "Walid Mecheri",
+    description:
+      "Portfolio de Walid Mecheri, Consultant IA & Automatisation — cartographie de processus, agents IA, intégrations no-code et delivery projet.",
+    url: "https://www.widocode.com",
     keywords: [
-      "web design",
-      "UI design",
-      "web development",
-      "portfolio",
-      "John Doe",
+      "IA",
+      "automatisation",
+      "agents IA",
+      "no-code",
+      "n8n",
+      "consultant technico-fonctionnel",
+      "Walid Mecheri",
     ],
-    language: "en",
+    language: "fr",
     charset: "UTF-8",
   },
 };

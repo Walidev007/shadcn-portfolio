@@ -23,10 +23,12 @@ function About() {
                 as="p"
                 className="max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400"
               >
-                I am a passionate and creative Web Developer with a love for
-                beautiful and functional websites. I have experience working
-                with a variety of web technologies and frameworks and I am
-                always eager to learn new things and take on new challenges.
+                I am Walid Mecheri, an AI & Automation Consultant helping
+                businesses map their processes, deploy AI agents, and
+                automate their workflows with tools like n8n, Make, and LLMs.
+                From functional cadrage workshops to production rollout and
+                team training, I turn manual, repetitive work into reliable,
+                documented automations.
               </TextReveal>
               <div className="flex gap-2">
                 <Button asChild variant={"outline"}>

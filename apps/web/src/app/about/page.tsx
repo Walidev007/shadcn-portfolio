@@ -51,13 +51,13 @@ export default function About() {
             as="h1"
             className="leading-wide tracking-relaxed z-20 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
           >
-            Innovator
+            Automation
           </TextReveal>
           <TextReveal
             as="h1"
             className="leading-wide tracking-relaxed z-20 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
           >
-            Designer
+            Consultant
           </TextReveal>
           <motion.div
             className="mt-8"
@@ -82,24 +82,27 @@ export default function About() {
                 as="h3"
                 className="font-serif text-3xl leading-tight sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl"
               >
-                I create captivating designs by blending aesthetics, motion, and
-                technology.
+                I turn manual, repetitive business processes into reliable AI
+                agents and automated workflows.
               </TextReveal>
               <TextReveal
                 as="p"
                 className="text-muted-foreground text-base leading-relaxed sm:text-lg md:text-lg lg:text-xl xl:text-2xl"
               >
-                My journey into creativity began with a spark of curiosity about
-                how ideas could come to life on a screen. Fascinated by the
-                interplay of design and technology, I started exploring web
-                development, motion graphics, and interface design through
-                self-driven projects. With every experiment, my skills grew, and
-                what began as a hobby soon became a passion for crafting
-                meaningful digital experiences. As I honed my abilities, I
-                sought opportunities to apply them in real-world settings,
-                turning concepts into polished outcomes. Today, my approach
-                combines creativity, problem-solving, and technical expertise to
-                create work that is both functional and impactful.
+                I started as a WordPress and PrestaShop integrator, building and
+                maintaining e-commerce sites for agencies across Lyon. That
+                hands-on web development background gave me a solid technical
+                base, which I carried into a technico-functional role at
+                Disneyland Paris, piloting Run and Build for an international
+                CMS platform used across Disney's Europe, Americas, and Asia
+                entities — coordinating Product, Design, IT, and QA teams
+                through JIRA and Agile/Scrum delivery. Today, as an independent
+                consultant, I combine that functional and technical experience
+                to help businesses map their processes, identify what can be
+                automated, and design AI agents and automations with n8n, Make,
+                Power Automate, and LLMs like Claude and ChatGPT — from framing
+                workshops through configuration, deployment, documentation, and
+                team training.
               </TextReveal>
               <Button asChild variant={"outline"} className="rounded-full px-6">
                 <a href="resume.pdf" target="_blank">

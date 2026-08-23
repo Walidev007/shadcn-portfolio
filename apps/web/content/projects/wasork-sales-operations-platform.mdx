@@ -1,0 +1,61 @@
+---
+title: "Wasork — Centralized Sales Operations Platform"
+description: End-to-end no-code system managing physical sales operations from brief to invoicing, with quote versioning, addenda, and operational KPIs.
+date: 2025-09-15
+tags:
+  - label: Airtable
+  - label: Softr
+  - label: Make
+  - label: DocsAutomator
+  - label: Claude Code
+  - label: Notion
+---
+
+Wasork organizes physical sales operations for brands — staff sales, public sales, friends & family events, charity sales. This was the founder's first project after leaving a sales manager position at Hermès France to start his own company; he had the client relationships and market knowledge but no operational system yet, and no in-house technical team.
+
+## Context
+
+Everything ran manually before this: Airtable forms and email threads to collect sales-operation briefs, quotes built by hand with no version history, addenda tracked informally, and no structured way to follow commercial KPIs (sales by category/hour/seller, no-show rate, commission bonuses). The founder needed a real operational backbone, not another spreadsheet — but as a brand-new, one-person company, budget and timeline were tight.
+
+## My Role
+
+Product owner and no-code product builder, full scope: functional design, cost/subscription estimation for the client, data modeling, workflow automation, frontend build, and client-facing delivery and onboarding. I was the only person building this, end to end.
+
+## Problems Encountered
+
+- The client couldn't visualize an abstract system from a spec document alone — he needed to *see* something before he could give useful feedback.
+- Softr (the frontend layer) couldn't natively render some of the specific charts the client needed — e.g. sales quantity by seller and by hour interval, broken down by category — a hard tool limitation, not a data problem.
+- The document-generation tool (DocsAutomator) required a very specific JSON payload structure, and its own documentation was incomplete and inconsistent with what the tool actually expected — repeated trial and error, plus a support ticket, was needed to get the payload structure right.
+- The client wanted branded invoices and quotes but had no existing templates of his own — only examples from his previous employer, which had to be redesigned from scratch as reusable templates with dynamic placeholders and conditional sections.
+- Review cycles were slow: the client needed time to check every delivery (database structure, Softr screens, seeded product/sales data) before validating the next step, so the whole build had to be sequenced and communicated carefully rather than delivered as one big drop.
+
+## Solutions Built
+
+**Step 1 — Audit & framing.** Acted as product owner for this phase: audited the client's existing manual process piece by piece, logged every requirement and decision in a dedicated Notion workspace, defined the MVP scope, planned every build step, estimated the full cost upfront (my service fee plus the tool subscriptions the client would need to pay for), and produced functional designs — schemas and flow diagrams — before any development started.
+
+**Step 2 — Development & implementation.** Built the Airtable base: tables, relational links, and scripts, with solid documentation, evolving it with small incremental changes as the client's requirements were refined during the build rather than re-architecting from scratch each time. In parallel, gathered and set up the accounts and logins needed across the automation toolchain (Softr, Make, DocsAutomator) so the integrations could go live without credential gaps mid-build.
+
+**Difficulties and how they were resolved:**
+
+- The client couldn't visualize an abstract system from a spec alone — he had no mental picture of what was being built. I spent one day building a throwaway frontend MVP specifically so he could *see* the direction early. Once we'd discussed the details and answered his questions against that prototype, I integrated the validated frontend properly using Softr's real components and functions.
+- Some elements didn't behave as expected in the MVP frontend — specifically, certain charts (sales quantity by seller and by hour interval, broken down by category) couldn't be built directly in Softr due to a hard tool limitation. Rather than compromise the workflow the client had already validated, I built custom scripts that fetched and shaped the exact data he needed by date interval and data type, as a workaround.
+- Review cycles were slow by nature of the client's process: he needed time to check every delivery — the database structure, the Softr frontend, the seeded product/sales data. I planned the whole build around this and kept a continuous discussion going so each part was validated in sequence rather than delivered as one big drop.
+- The client wanted branded invoices and quotes but didn't have templates for the new company — only examples from his previous role. I took those examples and turned them into reusable templates. The document-generation tool then turned out to have a payload structure requirement (unlike a simpler tool such as Google Docs) that its own documentation described incompletely. I had to make sure the JSON payload sent from the Make node matched the tool's expected object structure, contacted the vendor's support, and used Claude Code to help write the script that transformed my payload into the correct structure. I mapped the data inside the Make workflow node, built dedicated routes per document type, tested them, and verified output against the tool's own logs.
+- Documented everything as it was solved: the payload structure, template placeholders, conditional show/hide sections, and calculation formulas — so the system stays maintainable without me.
+
+**Delivery.** Linked the document-generation tool into Softr buttons, wiring each one to trigger the corresponding Make workflow. Took the time to live-test the full system and present it to the client page by page, feature by feature, before final validation. The client validated the tool and paid the final part of the cost.
+
+## Results
+
+The client went from a fully manual process (Airtable forms + email) to a fully integrated no-code system: a real database, a modern tablet- and mobile-friendly frontend, invoice and quote generation from his own template designs, user and brand management, and sales briefs with full versioning tracking every detail and change. The MVP was delivered and the client was onboarded on how to use it and make changes himself, in both Softr and Airtable.
+
+This was the client's first project since leaving a permanent position as sales manager at Hermès France — he knew exactly what he wanted to build and already had a contact list from that role to sell into. He's currently in a vacancy period, so I'm waiting on his feedback and longer-term thoughts on the platform; a significant amount of his time right now is going into sales activity alongside operating the MVP.
+
+## Technical Stack & Why Each Tool Was Selected
+
+- **Airtable** — chosen as the data and business-logic layer because it gives a brand-new one-person company a real relational database with a client-editable interface, without the cost or delay of a custom backend.
+- **Softr** — selected for the frontend because it builds directly on top of Airtable and produces a tablet/mobile-friendly interface fast, which mattered given the tight MVP budget and timeline.
+- **Make** — the automation and integration layer connecting Airtable, Softr, and the document-generation tool; chosen over more code-heavy alternatives because it kept the whole system maintainable by a non-developer client after handover.
+- **DocsAutomator** — used for automated PDF quote/invoice generation from the client's own templates; despite the documentation friction, it was the right tool once the payload structure was solved, since it let the client keep his real, branded document designs rather than generic auto-formatted output.
+- **Claude Code** — used to help reverse-engineer and script the correct JSON payload transformation for DocsAutomator, turning a documentation gap into a solved integration faster than manual trial and error alone.
+- **Notion** — used as the single source of truth for requirements, decisions, and scope throughout the audit and build, so nothing discussed with the client got lost between sessions.
