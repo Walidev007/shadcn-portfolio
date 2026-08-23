@@ -35,7 +35,7 @@ export async function generateMetadata(props: {
       type: "article",
       // todo: add custom dynamic og image
       authors: meta.author.name,
-      modifiedTime: page.data.date.toISOString(),
+      modifiedTime: new Date(page.data.date).toISOString(),
     },
   }) satisfies Metadata;
 }
@@ -89,7 +89,9 @@ export default async function BlogPage(props0: {
           </div>
           <div>
             <p className="text-muted-foreground mb-1 text-sm">At</p>
-            <p className="font-medium">{page.data.date.toDateString()}</p>
+            <p className="font-medium">
+              {new Date(page.data.date).toDateString()}
+            </p>
           </div>
           {/*<Control url={page.url} />*/}
         </div>

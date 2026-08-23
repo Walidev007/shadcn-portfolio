@@ -41,7 +41,8 @@ const jsonLd: WithContext<Blog> = {
 
 export default function BlogPage(): React.ReactElement {
   const posts = [...blog.getPages()].sort(
-    (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+    (a, b) =>
+      new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
   );
 
   return (

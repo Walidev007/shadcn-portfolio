@@ -28,7 +28,7 @@ const Header = () => {
       <div className={styles.bar}>
         <MotionLink
           href="/"
-          className="text-md inline-flex items-center justify-center font-semibold"
+          className="text-md inline-flex items-center justify-center font-semibold normal-case"
         >
           Walid MECHERI
         </MotionLink>

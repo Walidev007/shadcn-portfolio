@@ -1,0 +1,70 @@
+---
+title: "Flowchems — CRM Deployment & Sales Automation (Odoo)"
+description: Deployment and configuration of an Odoo CRM for an industrial inspection company moving off email, WhatsApp, and paper invoices, with automated pipelines and inquiry handling.
+date: 2025-03-01
+tags:
+  - label: Odoo
+  - label: Make
+  - label: Google Docs
+---
+
+Flowchems is an industrial inspection company that ran its entire commercial activity manually — no CRM, no structured pipeline, no tracking.
+
+## Context
+
+Before this engagement, the client managed his whole sales activity by hand:
+
+- inquiries and follow-ups tracked over email, WhatsApp, and phone
+- invoices written manually, one by one
+- no pipeline view of ongoing deals
+- no KPIs or reporting on commercial activity
+
+The business itself was running — inspection services (mechanical, electrical, NDT, QA/QC) for clients like AeroFinishes, PowerGrid Services, RotaryTec, Offshore Inspect Co — but nothing about the sales process was structured or trackable.
+
+## Problem
+
+Working without a CRM made it hard to:
+
+- **know the state of the pipeline** at any given moment — deals lived scattered across inboxes and chats
+- **respond quickly to new inquiries**, since nothing routed or flagged them automatically
+- **track deal value and stage** across prospects, so forecasting was guesswork
+- **produce invoices and documents consistently**, since everything was built by hand each time
+- **measure commercial performance**, with no KPIs on conversion, deal size, or activity
+
+## My Role
+
+I acted as **CRM Consultant** for this engagement:
+
+- audited the client's existing (manual) sales process and mapped it to a structured pipeline
+- deployed and configured Odoo CRM as the system of record for sales
+- built automations around inquiry handling, deal management, and document generation
+- set up the pipeline stages and views the client now runs the business on
+
+## Problems Encountered
+
+- The client had no existing structure to migrate from — every pipeline stage, tag, and field had to be defined from scratch based on how his team actually sold, not a pre-existing process.
+- Inquiries were arriving through three disconnected channels (email, WhatsApp, phone), so getting them all into one qualified pipeline required more than just "using Odoo" — it needed automation to catch and route them consistently.
+- The team was used to working reactively out of their inbox; adopting a CRM meant a change in daily habits, not just a new tool.
+
+## Solutions Built
+
+**1. Discovery & Configuration — CRM Consulting.** Audited how the sales team actually worked and translated it into an Odoo CRM pipeline: stages (New, Qualified, Proposition, Won), deal tagging by service type (QA/QC, Mechanical, Electrical, NDT, Inspection...), and per-deal fields for value, contact, and status.
+
+**2. Automation Build — Process Automation.** Used Make to connect Odoo to the client's inquiry channels, so new inquiries are captured and pushed into the pipeline automatically instead of sitting in an inbox. Built automations around deal-stage changes and follow-up handling to keep the pipeline moving without manual chasing.
+
+**3. Document Generation — Process Automation.** Connected Google Docs into the workflow to generate commercial documents (quotes, follow-ups) directly from CRM data, replacing manual, one-by-one document writing.
+
+**4. Rollout — CRM Consulting.** Trained the team on the new pipeline and handed over a system they could run day-to-day, replacing the email/WhatsApp/phone patchwork with one place to track every deal.
+
+## Business Value Delivered
+
+- **A real sales pipeline** — every inquiry and deal now lives in one system instead of scattered across email, WhatsApp, and phone calls.
+- **Faster inquiry response** — new inquiries are captured and routed automatically instead of waiting to be manually checked.
+- **Consistent, faster documents** — quotes and follow-ups generated from CRM data instead of written by hand.
+- **Visibility into the business** — the client can see deal stage, value, and activity at a glance for the first time.
+
+## Technical Stack & Why Each Tool Was Selected
+
+- **Odoo** — chosen as the CRM system of record because it gives the client a full sales pipeline, contact, and deal-tracking tool that fits an industrial-services sales process without building anything custom.
+- **Make** — used as the automation layer connecting inquiry channels and pipeline events to Odoo, since it let inquiries get captured and routed without the client needing his own integration code.
+- **Google Docs** — used for automated document generation, so quotes and follow-ups are produced consistently from CRM data instead of built manually for every deal.

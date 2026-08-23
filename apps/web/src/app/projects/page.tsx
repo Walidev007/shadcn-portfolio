@@ -46,7 +46,8 @@ const jsonLd: WithContext<CollectionPage> = {
 
 export default function ProjectsPage(): React.ReactElement {
   const projects = [...project.getPages()].sort(
-    (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+    (a, b) =>
+      new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
   );
 
   return (
