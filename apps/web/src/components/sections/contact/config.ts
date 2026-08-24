@@ -3,6 +3,7 @@ import { SiLinkedin } from "@icons-pack/react-simple-icons";
 
 const contact: Contact = {
   email: "hello@widocode.com",
+  location: "Veauche, France",
   socials: [
     {
       name: "Linkedin",

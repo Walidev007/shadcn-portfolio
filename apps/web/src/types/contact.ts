@@ -6,5 +6,6 @@ export interface Socials {
 
 export interface Contact {
   email: string;
+  location: string;
   socials: Socials[];
 }
