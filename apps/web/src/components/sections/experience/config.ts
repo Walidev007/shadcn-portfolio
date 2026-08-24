@@ -3,7 +3,7 @@ import type { Experience } from "@/types/experience";
 const experiences: Experience[] = [
   {
     name: "Consultant IA & Automatisation / Chef de Projet Fonctionnel",
-    duration: "Sept 2025 - Aujourd'hui",
+    duration: "2024 - Aujourd'hui",
     company: "WIDO (Freelance)",
     slug: "wido-ai-automation-consultant",
     description:
@@ -11,7 +11,7 @@ const experiences: Experience[] = [
   },
   {
     name: "Consultant Technico-Fonctionnel",
-    duration: "Nov 2021 - Sept 2025",
+    duration: "2021 - 2024",
     company: "Disneyland Paris (Freelance)",
     slug: "disneyland-paris-technico-functional-consultant",
     description:
