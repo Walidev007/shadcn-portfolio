@@ -15,7 +15,7 @@ import { buttonVariants } from "@repo/ui/button";
 import { PostComments } from "./page.client";
 
 export function generateStaticParams() {
-  return blog.generateParams();
+  return blog.generateParams().map(({ slug }) => ({ slug: slug[0] }));
 }
 
 export async function generateMetadata(props: {

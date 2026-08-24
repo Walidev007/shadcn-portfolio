@@ -11,7 +11,7 @@ import defaultMdxComponents from "fumadocs-ui/mdx";
 import Header from "./header";
 
 export function generateStaticParams() {
-  return project.generateParams();
+  return project.generateParams().map(({ slug }) => ({ slug: slug[0] }));
 }
 
 export async function generateMetadata(props: {

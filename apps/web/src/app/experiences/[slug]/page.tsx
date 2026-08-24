@@ -9,7 +9,7 @@ import defaultMdxComponents from "fumadocs-ui/mdx";
 import Header from "./header";
 
 export function generateStaticParams() {
-  return experience.generateParams();
+  return experience.generateParams().map(({ slug }) => ({ slug: slug[0] }));
 }
 
 export async function generateMetadata(props: {
