@@ -1,5 +1,5 @@
 import type { Hero } from "@/types/hero";
-import { metadata as meta } from "@/app/config";
+import { metadata as meta } from "@/app/[locale]/config";
 
 const hero: Hero = {
   name: meta.author.name,

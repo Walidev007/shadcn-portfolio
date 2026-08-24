@@ -1,7 +1,7 @@
 import { headers } from "next/headers";
 import { ImageResponse } from "next/og";
 import { NextResponse } from "next/server";
-import { metadata as meta } from "@/app/config";
+import { metadata as meta } from "@/app/[locale]/config";
 
 import DarkSvg from "./patterns/dark-svg";
 import LightSvg from "./patterns/light-svg";

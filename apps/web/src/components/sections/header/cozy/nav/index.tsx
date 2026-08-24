@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { UserButton } from "@/components/auth/user-button";
+import LocaleSwitcher from "@/components/locale-switcher";
 import ModeToggle from "@/components/mode-toggle";
-import { links } from "@/components/sections/header/config";
+import { getLinks } from "@/components/sections/header/config";
+import { localizedHref } from "@/i18n/routing";
+import { useLocale } from "@/lib/locale";
 import { motion } from "motion/react";
 
 import { height } from "../anim";
@@ -19,6 +22,11 @@ interface SelectedLinkState {
 }
 
 const Index: React.FC<IndexProps> = ({ setIsActive }) => {
+  const locale = useLocale();
+  const links = getLinks(locale).map((link) => ({
+    ...link,
+    href: localizedHref(locale, link.href),
+  }));
   const [selectedLink, setSelectedLink] = useState<SelectedLinkState>({
     isActive: false,
     index: 0,
@@ -48,6 +56,7 @@ const Index: React.FC<IndexProps> = ({ setIsActive }) => {
         />
         <div className="absolute right-0 bottom-0 mb-auto flex items-center gap-2">
           <UserButton />
+          <LocaleSwitcher />
           <ModeToggle />
         </div>
       </div>

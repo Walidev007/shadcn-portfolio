@@ -1,11 +1,14 @@
 "use client";
 
 import MotionLink from "@/components/fancy/link";
+import { localizedHref } from "@/i18n/routing";
+import { useLocale } from "@/lib/locale";
 import { motion } from "motion/react";
 
 import styles from "./style.module.scss";
 
 const Header = () => {
+  const locale = useLocale();
   return (
     <motion.header
       className={styles.header}
@@ -21,7 +24,7 @@ const Header = () => {
     >
       <div className={styles.bar}>
         <MotionLink
-          href="/"
+          href={localizedHref(locale, "/")}
           className="text-md inline-flex items-center justify-center font-semibold normal-case"
         >
           Walid MECHERI

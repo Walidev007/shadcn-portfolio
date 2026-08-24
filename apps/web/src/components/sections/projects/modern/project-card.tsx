@@ -1,7 +1,11 @@
+"use client";
+
 import type { Project } from "@/types/project";
 import Image from "next/image";
 import Link from "next/link";
 import TextReveal from "@/components/fancy/text-reveal";
+import type { Locale } from "@/i18n/routing";
+import { useLocale } from "@/lib/locale";
 
 import { cn } from "@repo/ui";
 import { AspectRatio } from "@repo/ui/aspect-ratio";
@@ -22,6 +26,11 @@ interface ProjectCardProps extends Project {
   className?: string;
 }
 
+const moreDetailsLabel: Record<Locale, string> = {
+  en: "More details",
+  fr: "Plus de détails",
+};
+
 // todo: update padding and spacing for all componetns as we upgraded to new york shadcn
 function ProjectCard({
   title,
@@ -31,6 +40,7 @@ function ProjectCard({
   tags,
   className,
 }: ProjectCardProps) {
+  const locale = useLocale();
   // todo: decide either to keep the white as the bg or use a muted color instead like prev versions
   return (
     <Card
@@ -84,7 +94,7 @@ function ProjectCard({
               </Button>
             </TooltipTrigger>
             <TooltipContent>
-              <p>Plus de détails</p>
+              <p>{moreDetailsLabel[locale]}</p>
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>

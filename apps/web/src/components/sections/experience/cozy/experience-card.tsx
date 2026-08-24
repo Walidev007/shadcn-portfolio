@@ -1,6 +1,11 @@
+"use client";
+
+import type { Locale } from "@/i18n/routing";
 import type { Experience } from "@/types/experience";
 import Link from "next/link";
 import TextReveal from "@/components/fancy/text-reveal";
+import { localizedHref } from "@/i18n/routing";
+import { useLocale } from "@/lib/locale";
 
 import { cn } from "@repo/ui";
 import { Card, CardContent } from "@repo/ui/card";
@@ -10,6 +15,11 @@ interface ExperienceCardProps extends Experience {
   className?: string;
 }
 
+const fullDetailsLabel: Record<Locale, string> = {
+  en: "Full details",
+  fr: "Voir plus",
+};
+
 function ExperienceCard({
   company,
   name,
@@ -18,6 +28,7 @@ function ExperienceCard({
   slug,
   className,
 }: ExperienceCardProps) {
+  const locale = useLocale();
   const card = (
     <Card
       className={cn(
@@ -46,7 +57,7 @@ function ExperienceCard({
         </TextReveal>
         {slug && (
           <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium">
-            Full details
+            {fullDetailsLabel[locale]}
             <Icons.arrowUpRight className="size-4" />
           </span>
         )}
@@ -60,7 +71,10 @@ function ExperienceCard({
   }
 
   return (
-    <Link href={`/experiences/${slug}`} className="block">
+    <Link
+      href={localizedHref(locale, `/experiences/${slug}`)}
+      className="block"
+    >
       {card}
     </Link>
   );

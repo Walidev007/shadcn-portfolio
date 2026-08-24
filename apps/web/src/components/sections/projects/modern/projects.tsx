@@ -1,7 +1,11 @@
+"use client";
+
 import React from "react";
-import { project } from "@/app/source";
+import { getProjectSource } from "@/app/source";
 import TextReveal from "@/components/fancy/text-reveal";
 import MotionWrap from "@/components/motion-wrap";
+import { type Locale, localizedHref } from "@/i18n/routing";
+import { useLocale } from "@/lib/locale";
 
 import {
   Carousel,
@@ -13,7 +17,23 @@ import {
 
 import ProjectCard from "./project-card";
 
+const copy: Record<Locale, { heading: string; subheading: string }> = {
+  en: {
+    heading: "My Projects",
+    subheading:
+      "A few of the projects where I've turned code into tools people actually use.",
+  },
+  fr: {
+    heading: "Mes Projets",
+    subheading:
+      "Voici quelques-uns de mes projets où j'ai transformé du code en outils concrets et utiles.",
+  },
+};
+
 function Projects() {
+  const locale = useLocale();
+  const { heading, subheading } = copy[locale];
+  const project = getProjectSource(locale);
   const projects = [...project.getPages()].sort(
     (a, b) =>
       new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
@@ -28,12 +48,11 @@ function Projects() {
                 as="h2"
                 className="flex flex-col -space-y-4 text-4xl leading-tight font-bold tracking-tighter sm:text-5xl md:text-5xl md:leading-tight lg:text-6xl lg:leading-tight"
               >
-                Mes Projets
+                {heading}
               </TextReveal>
             </div>
             <p className="mt-4 hidden text-gray-500 lg:mt-0 lg:block lg:w-[35%] dark:text-gray-400">
-              Voici quelques-uns de mes projets où j&apos;ai transformé du code
-              en outils concrets et utiles.
+              {subheading}
             </p>
           </div>
 
@@ -53,7 +72,7 @@ function Projects() {
                     <div className="h-full">
                       <ProjectCard
                         title={project.data.title}
-                        href={project.url}
+                        href={localizedHref(locale, project.url)}
                         description={project.data.description}
                         tags={project.data.tags}
                         thumbnail={`/images/projects/${project.slugs[0]}/cover.jpg`}

@@ -1,0 +1,114 @@
+---
+title: "Wasork — Centralized Sales Operations Platform"
+description: Built a centralized platform to manage the full lifecycle of a physical sales operation, from initial brief through final invoicing.
+date: 2026-06-01
+tags:
+  - label: Airtable
+  - label: Softr
+  - label: Make
+  - label: DocsAutomator
+  - label: Notion
+---
+
+This was the founder's first venture after leaving a sales manager role at Hermès France to start his own company; he had the client relationships and market knowledge, but no operational system or in-house technical team yet.
+
+## Context
+
+Wasork runs physical sales operations for various brands:
+
+- staff sales
+- public sales
+- *Friends & Family* events
+- charity sales
+
+Each operation involves several steps: gathering information, preparing quotes, tracking revisions, monitoring sales performance, and invoicing.
+
+Before the project, this information and these processes were split across different tools and manual work. That made it hard to:
+
+- centralize information tied to a given operation
+- track different versions of a quote
+- manage changes and amendments
+- calculate certain performance-related figures
+- get a global view of completed operations
+
+## Problem
+
+The core challenge was structuring a complete business process, from the initial need through to final invoicing.
+
+That meant building a system able to handle multiple operation types and brands, different product/service categories, structured requirements gathering, quote generation, document versioning, amendments (adding or removing services), operational KPI reporting, potential performance-bonus calculations, and generation of the final invoice.
+
+The challenge wasn't simply connecting a few tools. It was turning a set of business processes into one coherent system usable by teams day to day.
+
+## My Role
+
+I carried this engagement solo, across three distinct roles:
+
+- **Product Owner** — audited the client's existing process, scoped the MVP, and estimated project cost and recurring subscription costs before any commitment.
+- **No-Code Product Builder** — modeled data and relationships between entities, defined business rules, designed the user interfaces, and built the Airtable/Softr/Make architecture and document-generation workflow.
+- **Client-facing consultant** — ran validation sessions at every milestone, trained the client on the delivered system, and handled support through go-live.
+
+There was no team behind me on this project — discovery, build, and delivery were entirely mine. The goal was to build a coherent business product rather than a stack of independent forms and automations, structuring the full cycle: **Brief → Quote → Amendments → KPIs → Invoicing**.
+
+## Challenges Encountered
+
+**A business process with many dependencies.** Every operation involves several linked elements: brand, product categories, services, quotes, amendments, performance, and invoicing. A change in one place could ripple into several other parts of the system, which required a data model structured enough to keep the whole thing consistent.
+
+**Quote versioning.** A quote could go through several revisions before validation. The system needed to generate multiple versions of the same quote, keep a full history, identify the active/validated version, and auto-generate the corresponding documents — without a new generation simply overwriting the previous one.
+
+**Business rules that varied by operation.** Operations could involve different service types, products, and conditions, and certain fields needed to appear or disappear depending on context. The challenge was building forms and logic flexible enough to handle these scenarios without multiplying tools or parallel processes.
+
+**Turning operational KPIs into usable data.** Sales performance wasn't just a revenue number: sales by category, by rep, by hour, units sold, daily revenue, number of transactions and registers, attendance rate versus bookings, and potential performance bonuses. These metrics needed to be structured so they could feed directly into invoicing and analysis.
+
+**Additional technical constraints hit during the build:**
+
+- the client couldn't picture an abstract system from a spec document alone — he needed to *see* something before he could give useful feedback;
+- Softr (the frontend layer) couldn't natively render some of the charts the client needed, e.g. sales volume by rep and time slot, broken down by category — a tool limitation, not a data problem;
+- DocsAutomator required a very precise JSON payload structure, with documentation that was incomplete and inconsistent with what the tool actually expected — plenty of trial and error, plus a support ticket, were needed to land on the right structure;
+- the client wanted quotes and invoices in his brand colors, but had no existing templates — only examples from his former employer, which had to be redesigned from scratch into reusable templates with dynamic fields and conditional sections;
+- review cycles were slow, which meant sequencing and communicating carefully rather than shipping everything at once.
+
+## What Was Built
+
+**1. Scoping — Project Management.** Audited the client's existing manual process step by step, with every requirement and decision logged in a dedicated Notion workspace. Defined the MVP scope, planned each build phase, and estimated total cost upfront. Produced functional diagrams and flow charts before any development, so the client committed to a defined plan rather than an open-ended build.
+
+**2. Early validation — Product Build.** Rather than building the full system against a spec the client couldn't visualize, a throwaway frontend MVP was built in a single day to show the direction quickly. Once feedback was resolved, the real Softr build began with the direction already validated.
+
+**3. Business system modeling — Product Build.** Structured the data model around the project's core entities: sales operations, brands, product categories, services, quotes, quote versions, amendments, operational KPIs, bonus rules, and invoicing. **Airtable** served as the data foundation and business-logic engine, built and documented through small incremental changes as requirements were refined, with the goal of creating a single source of truth for the whole process.
+
+**4. Business interface build — Product Build.** A dedicated interface, built with **Softr** and connected directly to the data model, lets users create and track an operation, fill in brief details, manage services, generate quotes, follow different versions, create amendments, log operational data, and track KPIs for each sale.
+
+**5. Automated quote and amendment generation — Automation.** Data structured in Airtable feeds automatic document generation: quotes built from selected services, dynamic annexes, new document versions with history preserved, and associated amendments. **Make** orchestrates workflows between the system's different components, and **DocsAutomator** generates documents automatically from business data. Two friction points were resolved directly during the build: custom scripts to pull and format data Softr couldn't natively display (sales by rep and time slot, broken down by category), and reverse-engineering the JSON payload structure expected by DocsAutomator from incomplete vendor documentation — reaching out to their support and using Claude Code to write the transformation script, with dedicated Make routes per document type.
+
+**6. KPI and performance tracking — Product Build.** The system centralizes operational sales data (revenue, units sold, performance by category/rep/time slot, transaction counts, attendance rate, performance bonuses), which feeds the overall operation tracking and can be used in final invoice calculations.
+
+**7. Delivery — Project Management.** Sequenced rollout to match the client's review pace, wired the document-generation tool to Softr buttons to trigger the corresponding Make workflows, then tested the full system under real conditions and walked the client through it page by page, feature by feature. The client signed off on delivery and settled the final payment.
+
+## Business Value Delivered
+
+The client went from an entirely manual process (Airtable forms + email) to a fully integrated no-code system, structured around a single journey — **Brief → Configuration → Quote → Versioning → Amendments → Operation → KPIs → Invoicing** — where every step reuses data generated earlier, with no double entry:
+
+- **Fully centralized operations** — every brief, quote, amendment, and invoice lives in one system instead of being scattered across forms and emails.
+- **Faster sales prep** — briefs, quotes, and amendments are generated and updated in minutes instead of manual back-and-forth.
+- **Full document traceability** — quotes, amendments, and invoices are all versioned and archived.
+- **Better sales performance analysis** — operational KPIs are tracked directly in the system rather than reconstructed after the fact, all the way through to invoicing.
+- **A shipped, adopted MVP** — the client was trained and can now use and evolve the system himself, in both Softr and Airtable, with user and brand management built directly into the platform.
+- **A system built to grow** — the data and automation architecture can absorb new business rules, operation types, or modules as the business scales.
+
+<aside>
+
+The system provides a solid operational foundation for the company's future growth.
+
+</aside>
+
+## Tech Stack & Why Each Tool Was Chosen
+
+- **Airtable** — used as the product's central data foundation, structuring the core business entities, their relationships, and certain business rules, while staying flexible enough to evolve the model without the cost or timeline of a custom backend.
+- **Softr** — used to quickly build the interfaces teams use to view, create, and manage system data, tablet/mobile-friendly, which mattered given the MVP's tight budget and timeline.
+- **Make** — used as the orchestration layer connecting the system's different pieces and automating actions between data, interfaces, and document generation, keeping the whole thing maintainable by a non-developer client after handoff.
+- **DocsAutomator** — used to automatically generate quotes, amendments, and invoices from data structured in the system; despite the documentation friction, it was the right tool once the payload structure was solved, since it let the client keep real, on-brand document designs instead of a generic auto-generated look.
+- **Claude Code** — used to help reverse-engineer and script the correct JSON payload transformation for DocsAutomator, turning a documentation gap into a resolved integration faster than manual trial and error alone.
+- **Notion** — used as the single source of truth for requirements, decisions, and scope throughout the audit and build, so nothing discussed with the client got lost between sessions.
+
+## What This Project Shows
+
+This project is a good summary of how I work as a Product Builder. I don't start from a tool and ask what to do with it — I start from the business problem: how to structure a complex process, connect data, automate repetitive tasks, and give users a tool simple enough to actually get used. Then I choose and assemble the pieces needed to build the solution — here, Airtable for data, Softr for the user experience, Make for orchestration, DocsAutomator for documents: a business product built quickly with low-code tools, but designed as a real system rather than a pile of independent automations.

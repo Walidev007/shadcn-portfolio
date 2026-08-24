@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { contactSubmit } from "@/app/actions";
+import { contactSubmit } from "@/app/[locale]/actions";
 import { FormError } from "@/components/sections/contact/_components/form-error";
 import { FormSuccess } from "@/components/sections/contact/_components/form-success";
 import { TurnstileModal } from "@/components/sections/contact/_components/turnstile-modal";
 import { contact } from "@/components/sections/contact/config";
 import { env } from "@/env";
+import { type Locale } from "@/i18n/routing";
+import { useLocale } from "@/lib/locale";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useAction } from "next-safe-action/hooks";
 import { useForm } from "react-hook-form";
@@ -27,7 +29,50 @@ import { Input } from "@repo/ui/input";
 import { Textarea } from "@repo/ui/textarea";
 import { ContactFormSchema } from "@repo/validators";
 
+const copy: Record<
+  Locale,
+  {
+    nameLabel: string;
+    emailLabel: string;
+    messageLabel: string;
+    messagePlaceholder: string;
+    sendLabel: string;
+    mailSubject: string;
+    mailNameField: string;
+    mailMessageField: string;
+    captchaError: string;
+  }
+> = {
+  en: {
+    nameLabel: "Name",
+    emailLabel: "Email",
+    messageLabel: "Message",
+    messagePlaceholder:
+      "Hi there!\n\nThis is Jane Doe from Example. Just wanted to say hello!",
+    sendLabel: "Send",
+    mailSubject: "Message from the contact form",
+    mailNameField: "Name",
+    mailMessageField: "Message",
+    captchaError: "Captcha verification failed. Please complete the captcha.",
+  },
+  fr: {
+    nameLabel: "Nom",
+    emailLabel: "Email",
+    messageLabel: "Message",
+    messagePlaceholder:
+      "Bonjour !\n\nIci Jane Doe, de Example. Je voulais juste passer un petit bonjour !",
+    sendLabel: "Envoyer",
+    mailSubject: "Envoi depuis le formulaire de contact",
+    mailNameField: "Nom",
+    mailMessageField: "Message",
+    captchaError:
+      "Échec de la validation du captcha. Merci de compléter le captcha.",
+  },
+};
+
 export default function ContactForm() {
+  const locale = useLocale();
+  const t = copy[locale];
   const form = useForm<ContactFormType>({
     resolver: zodResolver(ContactFormSchema),
     defaultValues: {
@@ -48,9 +93,9 @@ export default function ContactForm() {
     } else {
       const mailto =
         `mailto:${encodeURIComponent(contact.email)}` +
-        `?subject=${encodeURIComponent("Envoi depuis le formulaire de contact")}` +
+        `?subject=${encodeURIComponent(t.mailSubject)}` +
         `&body=${encodeURIComponent(
-          `Nom : ${values.name}\nMessage : ${values.message}`,
+          `${t.mailNameField}: ${values.name}\n${t.mailMessageField}: ${values.message}`,
         )}`;
       window.open(mailto);
     }
@@ -59,12 +104,9 @@ export default function ContactForm() {
   function onVerify(token?: string) {
     setIsOpen(false);
     if (!token) {
-      toast.error(
-        "Échec de la validation du captcha. Merci de compléter le captcha.",
-        {
-          position: "bottom-center",
-        },
-      );
+      toast.error(t.captchaError, {
+        position: "bottom-center",
+      });
       return;
     }
     execute({ ...form.getValues(), token });
@@ -79,7 +121,7 @@ export default function ContactForm() {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Nom</FormLabel>
+                <FormLabel>{t.nameLabel}</FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Jane Doe"
@@ -96,7 +138,7 @@ export default function ContactForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel>{t.emailLabel}</FormLabel>
                 <FormControl>
                   <Input
                     placeholder="jane@example.com"
@@ -114,13 +156,11 @@ export default function ContactForm() {
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Message</FormLabel>
+                <FormLabel>{t.messageLabel}</FormLabel>
                 <FormControl>
                   <Textarea
                     disabled={status === "executing"}
-                    placeholder={
-                      "Bonjour !\n\nIci Jane Doe, de Example. Je voulais juste passer un petit bonjour !"
-                    }
+                    placeholder={t.messagePlaceholder}
                     {...field}
                   />
                 </FormControl>
@@ -140,7 +180,7 @@ export default function ContactForm() {
             {status === "executing" && (
               <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
             )}
-            Envoyer
+            {t.sendLabel}
           </Button>
         </form>
       </Form>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { metadata as meta } from "@/app/config";
+import { metadata as meta } from "@/app/[locale]/config";
 import { UserButton } from "@/components/auth/user-button";
 import Link from "@/components/fancy/link";
 import ThemeToggle from "@/components/mode-toggle";

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { contactSubmit } from "@/app/actions";
+import { contactSubmit } from "@/app/[locale]/actions";
 import { FormError } from "@/components/sections/contact/_components/form-error";
 import { FormSuccess } from "@/components/sections/contact/_components/form-success";
 import { TurnstileModal } from "@/components/sections/contact/_components/turnstile-modal";

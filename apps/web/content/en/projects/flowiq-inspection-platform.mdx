@@ -1,0 +1,103 @@
+---
+title: "Flowiq — AI-Assisted Inspection & Reporting Platform"
+description: Built a platform to simplify and automate the inspection and report-generation process.
+date: 2026-04-01
+tags:
+  - label: Claude Code
+  - label: Codex
+  - label: Vercel
+  - label: Supabase
+  - label: Stripe
+  - label: n8n
+  - label: AI/LLM
+  - label: Custom DOCX/PDF generation API
+---
+
+Built a platform to centralize inspection data and automate report generation, aiming to sharply cut the time spent on manual work.
+
+## Context
+
+Flowiq is a platform designed for companies and agencies running field inspections.
+
+Before the project, report production relied mainly on a manual process: inspectors collected their observations, then teams had to pick them up, structure them, and format them into Word or Google Docs documents.
+
+Every inspection meant repeating similar work: pulling in field-collected data, organizing observations, drafting and formatting the report, checking the document for consistency, then generating the final version to send to the client.
+
+Data stayed largely unstructured and was mainly used to produce a final document, with no real way to reuse it afterward.
+
+## Problem
+
+This manual workflow created several issues:
+
+- **significant processing time** — around 4 hours of manual work per day went into entering and preparing reports
+- **risk of errors and inconsistencies** across reports
+- **data that was hard to leverage**, since collected information stayed scattered or was baked directly into documents
+- **a process that was hard to evolve**, with every new requirement meaning more manual work
+- **cost constraints** — the solution had to stay viable for smaller agencies and not blow the infrastructure budget on the first cloud bill
+
+## My Role
+
+I owned this project as **Product Builder**, from product design through development and deployment.
+
+My work covered:
+
+- analyzing and structuring the inspection process
+- designing the data model
+- defining workflows between field collection and report generation
+- building the platform
+- setting up the backend, authentication, and user management
+- building a custom API for DOCX and PDF document generation
+- integrating AI models to assist with structuring and generating reports
+- automating parts of the workflow with n8n
+- setting up billing and infrastructure
+
+The goal was to build a product covering the full journey: **Inspection → Data Collection → Processing → Report Generation → Delivery**.
+
+## Challenges Encountered
+
+**Turning a document-based process into structured data.** The main challenge was moving away from a logic where information was entered directly into a final document. That meant deciding which data needed to be structured, which information could be auto-generated, which parts still needed a human, and how to keep enough flexibility across different inspection types. The goal wasn't just bolting AI onto a form — it was rebuilding the process around reusable data.
+
+**Generating complex documents reliably.** Generating a report wasn't just swapping a few variables into a template: documents can include different sections depending on the data collected, variable content, structured observations, elements generated or rewritten with AI help, and layout that has to stay consistent in the final document. So a dedicated DOCX/PDF generation API was built to control the document-production pipeline rather than depend entirely on a third-party tool.
+
+**Using AI without losing control of the output.** AI can speed up structuring and drafting, but it can't become a black box inventing inspection findings between two paragraphs. Workflows were built to start from structured data and use LLMs as an assistance layer within specific processing and generation steps rather than as the source of truth.
+
+**Keeping the infrastructure economically viable.** The platform had to scale without imposing disproportionate infrastructure costs. Tooling and architecture choices were also guided by operational simplicity, fast deployment, room to scale gradually, and cost control.
+
+## What Was Built
+
+**1. Centralizing and structuring inspection data.** The platform lets inspectors log observations in a structured format. Rather than producing a final document directly, information is stored as reusable data — which centralizes inspections, structures observations, auto-prepares the data needed for the report, and lets that information be reused elsewhere.
+
+**2. AI-assisted report generation.** A custom API was built to generate DOCX and PDF documents from collected data. AI/LLM models assist with certain structuring and drafting steps. The workflow turns inspection data into a structured report while sharply cutting manual work.
+
+**3. Workflow orchestration with n8n.** n8n automates and orchestrates certain steps between the platform's components, particularly the handoff between inspection data, processing, AI, and document generation — cutting manual handling and sparing users from moving information between tools themselves.
+
+**4. Building the platform.** The platform runs on an architecture handling users, agencies, inspections, collected data, report generation, and billing/subscriptions. It was deployed on a stack that supports fast iteration while keeping a technical base that can scale.
+
+**5. Subscriptions and billing.** Stripe was integrated to handle subscriptions and billing, positioning the platform for SaaS operation and automating the commercial side tied to product usage.
+
+## Business Value Delivered
+
+The platform turns a mostly manual process into a structured, largely automated workflow:
+
+- **A major cut in processing time** — a process that used to require roughly 4 hours of manual work can now be down to about 15 minutes for report generation and finalization.
+- **Centralized data** — collected information is no longer locked away solely inside documents.
+- **More consistent reports** — generation is built on shared structure and templates.
+- **Less manual handling** — data flows automatically between workflow steps.
+- **A product foundation that can grow** — new inspection types, report templates, or automations can be added incrementally.
+- **Infrastructure designed for cost control**, from the earliest design stages.
+
+## Tech Stack & Why Each Tool Was Chosen
+
+- **Vercel** — used to deploy the app quickly and support fast iteration, with a deployment environment suited to a scaling web platform.
+- **Supabase** — used as the backend foundation for the database, authentication, users, and business data, without building and maintaining a fully custom infrastructure from day one.
+- **n8n** — used as the orchestration layer between product steps, connecting data, AI processing, and document generation into automated workflows.
+- **AI/LLM** — used to assist with certain data-processing and report-generation steps, working from collected, structured information rather than generating content without context.
+- **Custom DOCX/PDF API** — built to produce final reports from the platform's structured data while keeping control over the structure and format of the output.
+- **Stripe** — integrated to manage agency subscriptions and position the platform for a SaaS model.
+- **Claude Code & Codex** — used as AI-assisted development tools to speed up building the product, particularly application logic, integrations, document generation, APIs, and automations. AI accelerated production; it didn't replace thinking through the data model, workflows, or architecture.
+
+## What This Project Shows
+
+Flowiq is a good example of how I work when a need goes beyond a simple automation between two tools. I start from the business problem — how to cut the time spent on a repetitive task while improving data quality, traceability, and reuse — then pick the right pieces and build the workflow end to end: Application → Data → Automation → AI → Document Generation → Delivery.
+
+This project combines several dimensions: business process analysis, product design, data structuring, application development, workflow automation, AI integration, and custom API development. The goal stays simple — take a process that eats several hours and build a system that can run it much faster, without turning the team into administrators of an over-engineered machine.

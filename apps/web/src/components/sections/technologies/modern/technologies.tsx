@@ -4,11 +4,26 @@ import React, { useRef } from "react";
 import TextReveal from "@/components/fancy/text-reveal";
 import MotionWrap from "@/components/motion-wrap";
 import { technologies } from "@/components/sections/technologies/config";
+import { type Locale } from "@/i18n/routing";
+import { useLocale } from "@/lib/locale";
 
 import TechnologyCard from "./technology-card";
 
+const copy: Record<Locale, { heading: string; subheading: string }> = {
+  en: {
+    heading: "My Technologies",
+    subheading: "A few of the technologies I use across my projects",
+  },
+  fr: {
+    heading: "Mes Technologies",
+    subheading: "Voici quelques technologies que j'utilise dans mes projets",
+  },
+};
+
 function Technologies() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const locale = useLocale();
+  const { heading, subheading } = copy[locale];
 
   return (
     <MotionWrap className="w-full py-24 lg:py-32" id="technologies">
@@ -19,11 +34,11 @@ function Technologies() {
               as="h2"
               className="flex flex-col -space-y-4 text-4xl leading-tight font-bold tracking-tighter sm:text-5xl md:text-5xl md:leading-tight lg:text-6xl lg:leading-tight"
             >
-              Mes Technologies
+              {heading}
             </TextReveal>
             <div className="space-y-4">
               <p className="max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                Voici quelques technologies que j'utilise dans mes projets
+                {subheading}
               </p>
             </div>
           </div>

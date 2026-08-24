@@ -3,17 +3,35 @@
 import React from "react";
 import TextReveal from "@/components/fancy/text-reveal";
 import MotionWrap from "@/components/motion-wrap";
-import { testimonials } from "@/components/sections/testimonials/config";
+import { getTestimonials } from "@/components/sections/testimonials/config";
+import { type Locale } from "@/i18n/routing";
+import { useLocale } from "@/lib/locale";
 import Autoplay from "embla-carousel-auto-scroll";
 
 import { Carousel, CarouselContent, CarouselItem } from "@repo/ui/carousel";
 
 import TestimonialCard from "./testimonial-card";
 
-const firstRow = testimonials.slice(0, testimonials.length / 2);
-const secondRow = testimonials.slice(testimonials.length / 2);
+const copy: Record<Locale, { heading: string; subheading: string }> = {
+  en: {
+    heading: "Testimonials",
+    subheading:
+      "A few words from clients and colleagues about what it's like to work with me.",
+  },
+  fr: {
+    heading: "Mes Témoignages",
+    subheading:
+      "Voici quelques témoignages de clients et collègues qui partagent leur expérience de travail avec moi.",
+  },
+};
 
 function Testimonials() {
+  const locale = useLocale();
+  const { heading, subheading } = copy[locale];
+  const testimonials = getTestimonials(locale);
+  const firstRow = testimonials.slice(0, testimonials.length / 2);
+  const secondRow = testimonials.slice(testimonials.length / 2);
+
   return (
     <MotionWrap className="w-full py-24 lg:py-32" id="testimonials">
       <div className="grid gap-10">
@@ -23,12 +41,11 @@ function Testimonials() {
               as="h2"
               className="flex flex-col -space-y-4 text-4xl leading-tight font-bold tracking-tighter sm:text-5xl md:text-5xl md:leading-tight lg:text-6xl lg:leading-tight"
             >
-              Mes Témoignages
+              {heading}
             </TextReveal>
           </div>
           <p className="mt-4 hidden text-gray-500 lg:mt-0 lg:block lg:w-[35%] dark:text-gray-400">
-            Voici quelques témoignages de clients et collègues qui share
-            their experiences of working with me.
+            {subheading}
           </p>
         </div>
 

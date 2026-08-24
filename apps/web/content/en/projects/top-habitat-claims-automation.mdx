@@ -1,0 +1,65 @@
+---
+title: "Top Habitat — Claims Management Automation & Internal Portal"
+description: Designed and rolled out automations to simplify the administrative and operational handling of claims files.
+date: 2025-09-01
+tags:
+  - label: Pipedrive
+  - label: n8n
+  - label: ClickSend
+  - label: YouSign
+  - label: Typeform
+  - label: EspoCRM
+---
+
+Top Habitat manages claims files on behalf of inspection experts and legal case managers — a process that had been largely manual and scattered across multiple tools.
+
+## Context
+
+Every claims file involves several administrative and operational steps: gathering required documents, sending agreements and mandates, generating quotes and invoices, then tracking communications with the various stakeholders (experts, policyholders, case managers). These steps were handled manually, file by file, with no centralized tool to track progress.
+
+## Problem
+
+This manual handling made it hard to:
+
+- **collect required documents** reliably and quickly from different parties
+- **send agreements and mandates** without redrafting them by hand every time
+- **generate quotes and invoices** consistently for every file
+- **track file progress** in one place, rather than scattered across emails and separate documents
+- **give teams a clear view** of open files and remaining actions
+
+## My Role
+
+I owned the design and rollout of the automations and portal:
+
+- audited the claims file journey from opening to closing
+- designed automations covering document collection, agreement dispatch, and quote/invoice generation
+- rolled out Pipedrive as the entry point for the sales and administrative journey
+- built a dedicated portal on EspoCRM to centralize file tracking for experts and case managers
+
+## What Was Built
+
+**1. Automated document collection.** Set up Typeform forms for structured collection of documents and information needed to open a file, with automatic capture into the system instead of an email exchange.
+
+**2. Agreement and mandate dispatch.** Automated the generation and dispatch of agreements and mandates via YouSign with e-signature, removing manual back-and-forth over paper or PDF documents.
+
+**3. Automated communications.** Integrated ClickSend to automate communications (SMS/mail) with the various stakeholders at each key step of a file.
+
+**4. Centralized portal.** Built a dedicated portal on EspoCRM letting inspection experts and legal case managers track the progress of each claim, access the documents and information they need, without relying on scattered exchanges.
+
+**5. Sales pipeline and tracking.** Rolled out Pipedrive to structure upstream file tracking and connect all the automations around a clear pipeline.
+
+## Business Value Delivered
+
+- **Manual, scattered processes turned into structured, connected, automated workflows.**
+- **Time saved** on document collection, agreement dispatch, and quote/invoice generation.
+- **Better visibility** into the progress of each file through the centralized portal.
+- **More reliable communications** with stakeholders, automated at each key step.
+
+## Tech Stack & Why Each Tool Was Chosen
+
+- **Pipedrive** — used as the pipeline to structure and track files upstream of processing.
+- **n8n** — used as the central automation layer, connecting the different tools throughout a file's journey.
+- **ClickSend** — integrated to automate communications with the various stakeholders.
+- **YouSign** — used for e-signature of agreements and mandates, with no paper exchange.
+- **Typeform** — used for structured collection of the documents and information needed to open a file.
+- **EspoCRM** — chosen as the base for the dedicated portal, letting experts and case managers track their files centrally.

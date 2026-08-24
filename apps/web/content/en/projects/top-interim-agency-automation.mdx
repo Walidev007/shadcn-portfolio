@@ -1,0 +1,71 @@
+---
+title: "Top Intérim — Staffing Agency Process Automation"
+description: Designed and rolled out a connected system to automate several business and administrative processes for a staffing agency.
+date: 2025-05-01
+tags:
+  - label: Notion
+  - label: Make
+  - label: n8n
+  - label: Sellsy
+  - label: Bizneo
+  - label: ClickSend
+  - label: ChatGPT
+---
+
+Top Intérim ran its entire business — candidates, assignments, contracts, invoicing — directly out of Notion, with no automation connecting the different steps of the process.
+
+## Context
+
+A staffing agency handles a large number of interdependent processes day to day: matching candidates to open assignments, drafting contracts, tracking timesheets, invoicing, and business development to find new assignments. At Top Intérim, all of this ran on Notion as the central tool, but with no automated connection between steps — every handoff from one stage to the next required manual work.
+
+## Problem
+
+This setup made it difficult to:
+
+- **quickly match candidates to assignments** without manually re-checking criteria each time
+- **generate contracts and assignment documents** without drafting them one by one
+- **track timesheets** for active assignments reliably and centrally
+- **invoice** consistently and without errors from assignment data
+- **prospect efficiently** without spending a disproportionate share of time on it relative to the rest of the business
+
+All of this added up to a significant manual workload for a small team.
+
+## My Role
+
+I owned the design and rollout of the connected system:
+
+- audited existing Notion-based processes and identified automatable tasks
+- designed automations covering candidate/assignment matching, contracts, timesheets, invoicing, and prospecting
+- connected the full toolset (Sellsy, Bizneo, ClickSend, ChatGPT) around Notion as the source of truth
+- built the Make and n8n workflows orchestrating the exchanges between these tools
+
+## What Was Built
+
+**1. Candidate/assignment matching.** Automated matching between registered candidate profiles and open assignments, cutting the time spent manually cross-checking criteria.
+
+**2. Contracts and assignments.** Automated generation of contracts and assignment documents from data centralized in Notion, instead of drafting them by hand for each assignment.
+
+**3. Timesheets and invoicing.** Connected management tools (Sellsy, Bizneo) to automate timesheet tracking and invoice generation from assignment data, cutting re-entry and error risk.
+
+**4. Automated communications.** Integrated ClickSend to automate communications related to assignments and candidates at each key step.
+
+**5. AI-assisted prospecting.** Used ChatGPT to assist with certain business development tasks, cutting prep time.
+
+**6. Orchestration.** Set up Make and n8n workflows connecting all these tools around Notion, so each step automatically triggers the next without manual intervention.
+
+## Business Value Delivered
+
+- **About a 35% reduction in manual work** across all covered processes.
+- **Centralized data** around Notion, with automated flow between the different business tools.
+- **Faster candidate/assignment matching**, cutting processing time per assignment.
+- **More reliable invoicing**, generated directly from assignment data instead of manual re-entry.
+
+## Tech Stack & Why Each Tool Was Chosen
+
+- **Notion** — kept as the single source of truth for candidates, assignments, and processes, avoiding a parallel system.
+- **Make** — used as the primary automation layer connecting Notion to the other business tools.
+- **n8n** — used alongside Make for specific workflows, particularly around timesheets and invoicing.
+- **Sellsy** — used for invoicing, connected to assignment data to generate invoices automatically.
+- **Bizneo** — used for timesheet and HR tracking of assignments.
+- **ClickSend** — integrated to automate communications with candidates and clients.
+- **ChatGPT** — used to assist with certain business-development tasks and cut prep time.

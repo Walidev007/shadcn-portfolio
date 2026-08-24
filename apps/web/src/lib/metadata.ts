@@ -1,5 +1,5 @@
 import type { Metadata } from "next/types";
-import { metadata as meta } from "@/app/config";
+import { metadata as meta } from "@/app/[locale]/config";
 
 export const baseUrl = meta.site.url;
 
