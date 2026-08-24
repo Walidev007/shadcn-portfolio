@@ -10,5 +10,5 @@ export const getYearDisplay = (startYear: number) => {
   if (startYear < 1900 || startYear > currentYear) {
     throw new Error("Invalid start year");
   }
-  return startYear === currentYear ? startYear : `${startYear}-${currentYear}`;
+  return currentYear;
 };

@@ -24,11 +24,11 @@ function Projects() {
         <div className="grid items-start gap-10 lg:grid-cols-2">
           <div className="space-y-4">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-              My Projects
+              Mes Projets
             </h2>
             <p className="text-gray-500 dark:text-gray-400">
-              Here are some of my projects where I&apos;ve turned code into
-              cool, functional stuff.
+              Voici quelques-uns de mes projets où j&apos;ai transformé du code
+              en outils concrets et utiles.
             </p>
           </div>
           <div className="flex items-center justify-center overflow-hidden lg:px-12">

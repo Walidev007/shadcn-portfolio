@@ -19,11 +19,11 @@ function Technologies() {
               as="h2"
               className="flex flex-col -space-y-4 text-4xl leading-tight font-bold tracking-tighter sm:text-5xl md:text-5xl md:leading-tight lg:text-6xl lg:leading-tight"
             >
-              My Technologies
+              Mes Technologies
             </TextReveal>
             <div className="space-y-4">
               <p className="max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                Here are some of the technologies I use in my projects
+                Voici quelques technologies que j'utilise dans mes projets
               </p>
             </div>
           </div>

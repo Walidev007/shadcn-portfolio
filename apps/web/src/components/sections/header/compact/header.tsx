@@ -86,7 +86,7 @@ export default function Header() {
           </Link>
 
           <button className="md:hidden" onClick={toggleMenu}>
-            <span className="sr-only">{isOpen ? "Close" : "Menu"}</span>
+            <span className="sr-only">{isOpen ? "Fermer" : "Menu"}</span>
             {isOpen ? (
               <Icons.close className="h-6 w-6" />
             ) : (
@@ -115,7 +115,7 @@ export default function Header() {
                         className="m-0 h-8 w-8"
                       >
                         <Icons.ellipsis className="h-4 w-4" />
-                        <span className="sr-only">Toggle menu</span>
+                        <span className="sr-only">Basculer le menu</span>
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">

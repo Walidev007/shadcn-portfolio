@@ -2,174 +2,71 @@ import type { Testimonial } from "@/types/testimonial";
 
 const testimonials: Testimonial[] = [
   {
-    name: "Jane Doe",
-    image: "/images/person/janedoe.jpg",
-    username: "janedoe",
+    name: "Cédric Laemlin",
+    image: "/images/person/cedric-laemlin.png",
+    username: "Chargé de mission risque et recouvrement",
     testimonial:
-      "Collaborating with John on this project was a fantastic experience. His dedication and expertise were invaluable.",
+      "C'est un plaisir de recommander Walid. J'ai suivi avec lui une formation complète sur l'outil Notion et son approche pédagogique a été particulièrement efficace. Il a su expliquer des concepts qui peuvent paraître complexes au départ en les schématisant clairement, notamment à l'aide de supports visuels, ce qui m'a permis de mieux comprendre la logique de l'outil et la structuration d'un CRM. Grâce à son accompagnement, j'ai pu appréhender Notion de manière beaucoup plus concrète et opérationnelle. Merci encore pour ton aide et ton expertise.",
   },
   {
-    name: "Emily Smith",
-    image: "/images/person/emilysmith.jpg",
-    username: "emilysmith",
+    name: "Thomas Groell",
+    image: "/images/person/thomas-groell.png",
+    username:
+      "Co-fondateur @ JIB - Favoriser l'autonomie et la communication des personnes en situation de handicap",
     testimonial:
-      "John's work on the project was outstanding. His problem-solving skills and attention to detail greatly contributed to our success.",
+      "Walid nous a accompagné sur une mission assez spécifique d'implémentation no-code (via Make) dans nos process internes. Le projet n'était pas évident et Walid nous a débloqué en trouvant une solution ingénieuse et adaptée à nos besoins. Le suivi de projet était top et la communication très fluide ! Je vous recommande Walid pour vos projets !",
   },
   {
-    name: "Michael Johnson",
-    image: "/images/person/michaeljohnson.jpg",
-    username: "michaeljohnson",
+    name: "Nadine Mayassi",
+    image: "/images/person/nadine-mayassi.png",
+    username:
+      "AI Business Developer & Growth Strategist | I build B2B acquisition systems that fill your pipeline | Human-Centered AI & Agentic Automation | Europe & GCC",
     testimonial:
-      "John's innovative approach and technical proficiency were key to the success of our project. Highly recommend working with him.",
+      "Walid est un professionnel rigoureux, impliqué et toujours orienté vers les solutions. Son sens du relationnel, sa bienveillance et sa capacité à fédérer rendent la collaboration fluide et efficace. Il allie expertise, fiabilité et qualités humaines avec un rare équilibre.",
   },
   {
-    name: "Sarah Williams",
-    image: "/images/person/sarahwilliams.jpg",
-    username: "sarahwilliams",
+    name: "Carolina Salazar Estrada",
+    image: "/images/person/carolina-salazar-estrada.png",
+    username:
+      "Analyste QA | Projets Disney via Globant – France & US | Agile Scrum/SAFe | Polyglotte : ES/EN/FR/IT",
     testimonial:
-      "John has an exceptional ability to communicate complex ideas clearly. His contributions were crucial to the project’s success.",
+      "Travailler avec Walid chez Disneyland Paris a été un vrai plaisir. Au-delà de ses compétences techniques, c'est quelqu'un de profondément humain, toujours à l'écoute et de bonne humeur. Sa capacité à fédérer l'équipe et à garder un esprit positif même sous pression fait toute la différence. Un collègue en or, sur qui on peut toujours compter !",
   },
   {
-    name: "David Brown",
-    image: "/images/person/davidbrown.jpg",
-    username: "davidbrown",
+    name: "Riaz Abdul",
+    image: "/images/person/riaz-abdul.jpg",
+    username: "Consultant QA chez Disneyland Paris",
     testimonial:
-      "Working with John was a pleasure. His professionalism and technical skills are top-notch. Highly recommend him for any project.",
+      "Je recommande vivement Walid pour son professionnalisme, sa rigueur et son excellent esprit d'équipe. Une collaboration toujours fluide et agréable !",
   },
   {
-    name: "Jessica Taylor",
-    image: "/images/person/jessicataylor.jpg",
-    username: "jessicataylor",
+    name: "Imen Hechkel",
+    image: "/images/person/imen-hechkel.jpg",
+    username: "Chef de Projet IT",
     testimonial:
-      "John's creativity and problem-solving abilities were impressive. He played a key role in the project's success.",
+      "J'ai collaboré avec Walid sur un projet complexe sous Tridion, et il a su livrer un travail impeccable malgré les délais serrés. Sa maîtrise du CMS Tridion, son sens du détail et sa réactivité ont été précieux pour la réussite du projet. C'est un coordinateur technique fiable, efficace et toujours orienté solution.",
   },
   {
-    name: "Oliver Martinez",
-    image: "/images/person/olivermartinez.jpg",
-    username: "olivermartinez",
+    name: "Salime Ben Yedder",
+    image: "/images/person/salime-ben-yedder.jpg",
+    username: "Product Owner Technique | API | Architecture",
     testimonial:
-      "John's technical leadership and clear communication made a big difference in our project's outcome.",
+      "Walid, c'est le genre de collègue qu'on veut avoir sur un projet digital. Toujours carré, toujours clair, jamais dans le flou. Il comprend aussi bien les enjeux techniques que fonctionnels, et sait transformer les contraintes en plan d'action. Grâce à son sens du détail et de la coordination, le projet a avancé sans heurts. Un professionnel fiable, rigoureux et très agréable à suivre. Sa maîtrise de l'IA sera également un atout majeur pour vos projets de digitalisation.",
   },
   {
-    name: "Sophia Turner",
-    image: "/images/person/sophiaturner.jpg",
-    username: "sophiaturner",
+    name: "Karim Ennajjar",
+    image: "/images/person/karim-ennajjar.png",
+    username: "Lead Intégrateur Web | Front End Javascript | Expert accessibilité numérique RGAA",
     testimonial:
-      "John’s expertise in software development is second to none. He was a vital asset in our team’s success.",
+      "Nous avons travaillé ensemble sur un projet digital d'envergure. Walid a joué un rôle clé dans la coordination entre les équipes, la priorisation des tâches et le suivi des livrables. Sa compréhension des enjeux techniques et métiers a permis de livrer un projet solide, dans les délais et sans dérapage. Efficace, structuré et très impliqué, il fait clairement partie des profils sur qui on peut compter.",
   },
   {
-    name: "Noah Scott",
-    image: "/images/person/noahscott.jpg",
-    username: "noahscott",
+    name: "Fatima Benali",
+    image: "/images/person/fatima-benali.jpg",
+    username: "Global Quality General Manager",
     testimonial:
-      "John’s ability to troubleshoot and resolve issues quickly was critical to our project staying on track.",
+      "Travailler avec Walid, c'est avoir un chef de projet qui comprend à la fois la technique et les enjeux opérationnels. Il a piloté la création de notre portail interne de A à Z : ergonomie, automatisations, intégrations API... Résultat : un outil sur mesure, fiable et surtout utilisé au quotidien par nos équipes. Sa capacité à simplifier la complexité est bluffante. Je recommande sans hésitation pour tout projet de digitalisation.",
   },
-  {
-    name: "Lily Johnson",
-    image: "/images/person/lilyjohnson.jpg",
-    username: "lilyjohnson",
-    testimonial:
-      "John’s guidance and attention to detail greatly enhanced the quality of our project. He’s a pleasure to work with.",
-  },
-  {
-    name: "James White",
-    image: "/images/person/jameswhite.jpg", // todo
-    username: "jameswhite",
-    testimonial:
-      "John’s technical prowess and collaborative spirit made him an indispensable part of the project.",
-  },
-  {
-    name: "Isabella Evans",
-    image: "/images/person/isabellaevans.jpg",
-    username: "isabellaevans",
-    testimonial:
-      "John's contributions were instrumental to our project’s success. His work ethic and creativity were outstanding.",
-  },
-  {
-    name: "Henry Adams",
-    image: "/images/person/henryadams.jpg",
-    username: "henryadams",
-    testimonial:
-      "John’s professionalism and dedication were crucial in delivering the project on time and with high quality.",
-  },
-  {
-    name: "Ava Davis",
-    image: "/images/person/avadavis.jpg",
-    username: "avadavis",
-    testimonial:
-      "John’s ability to lead complex projects with ease made the difference in achieving our goals.",
-  },
-  {
-    name: "William Harris",
-    image: "/images/person/williamharris.jpg",
-    username: "williamharris",
-    testimonial:
-      "John’s thoroughness and problem-solving skills ensured the project’s success. I highly recommend working with him.",
-  },
-  {
-    name: "Mia Clark",
-    image: "/images/person/miaclark.jpg",
-    username: "miaclark",
-    testimonial:
-      "John is an outstanding collaborator and technical expert. His input significantly improved our project outcomes.",
-  },
-  {
-    name: "Alexander Lewis",
-    image: "/images/person/alexanderlewis.jpg",
-    username: "alexanderlewis",
-    testimonial:
-      "John’s dedication and expertise were instrumental in overcoming the challenges we faced during the project.",
-  },
-  {
-    name: "Charlotte Young",
-    image: "/images/person/charlotteyoung.jpg", // todo
-    username: "charlotteyoung",
-    testimonial:
-      "John’s creative thinking and attention to detail played a significant role in our project’s success.",
-  },
-  {
-    name: "Liam Walker",
-    image: "/images/person/liamwalker.jpg",
-    username: "liamwalker",
-    testimonial:
-      "John's collaborative nature and technical knowledge made him an invaluable team member.",
-  },
-  {
-    name: "Amelia Hall",
-    image: "/images/person/ameliahall.jpg",
-    username: "ameliahall",
-    testimonial:
-      "John’s strategic thinking and ability to solve complex problems were key to the success of our project.",
-  },
-  {
-    name: "Ethan King",
-    image: "/images/person/ethanking.jpg",
-    username: "ethanking",
-    testimonial:
-      "John’s technical expertise and dedication ensured that we delivered a high-quality project on time.",
-  },
-  {
-    name: "Olivia Wright",
-    image: "/images/person/oliviawright.jpg",
-    username: "oliviawright",
-    testimonial:
-      "John is an exceptional problem-solver and communicator. He consistently delivered top-notch work on the project.",
-  },
-  {
-    name: "Benjamin Hill",
-    image: "/images/person/benjaminhill.jpg",
-    username: "benjaminhill",
-    testimonial:
-      "John’s leadership and technical knowledge were instrumental in navigating the complexities of our project.",
-  },
-  {
-    name: "Eleanor Scott",
-    image: "/images/person/eleanorscott.jpg",
-    username: "eleanorscott",
-    testimonial:
-      "John’s ability to bring clarity and structure to the project was invaluable. He’s a pleasure to work with.",
-  },
-  // todo: add attribution for portfolio unsplash images
 ];
 
 export { testimonials };

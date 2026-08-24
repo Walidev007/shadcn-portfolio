@@ -1,0 +1,103 @@
+---
+title: "Flowiq — Plateforme d'inspection et de reporting assistée par IA"
+description: Développement d'une plateforme permettant de simplifier et d'automatiser le processus d'inspection et de génération des rapports.
+date: 2026-04-01
+tags:
+  - label: Claude Code
+  - label: Codex
+  - label: Vercel
+  - label: Supabase
+  - label: Stripe
+  - label: n8n
+  - label: IA/LLM
+  - label: API de génération DOCX/PDF développée sur mesure
+---
+
+Développement d'une plateforme permettant de centraliser les données d'inspection et d'automatiser la génération de rapports, avec l'objectif de réduire fortement le temps consacré aux tâches manuelles.
+
+## Contexte
+
+Flowiq est une plateforme conçue pour des entreprises et agences réalisant des inspections sur le terrain.
+
+Avant le projet, la production des rapports reposait principalement sur un processus manuel : les inspecteurs collectaient leurs observations, puis les équipes devaient les reprendre, les structurer et les mettre en forme dans des documents Word ou Google Docs.
+
+Chaque inspection impliquait donc de répéter un travail similaire : récupérer les informations collectées sur le terrain, organiser les observations, rédiger et mettre en forme le rapport, vérifier la cohérence du document, puis générer la version finale à envoyer au client.
+
+Les données restaient peu structurées et étaient principalement utilisées pour produire un document final, sans réelle possibilité de les réutiliser facilement par la suite.
+
+## Problème
+
+Ce fonctionnement manuel posait plusieurs difficultés :
+
+- **un temps de traitement important** — environ 4 heures de travail manuel par jour étaient consacrées à la saisie et à la préparation des rapports
+- **un risque d'erreurs et d'incohérences** entre les différents rapports
+- **une donnée peu exploitable**, car les informations collectées restaient dispersées ou intégrées directement dans des documents
+- **un processus difficile à faire évoluer**, chaque nouveau besoin impliquant des manipulations manuelles supplémentaires
+- **des contraintes économiques**, la solution devant rester viable pour des agences de taille modeste et ne pas exploser le budget infrastructure à la première facture cloud
+
+## Mon Rôle
+
+J'ai porté le projet comme **Product Builder**, de la conception du produit jusqu'à son développement et son déploiement.
+
+Mon intervention a couvert :
+
+- l'analyse et la structuration du processus d'inspection
+- la conception du modèle de données
+- la définition des workflows entre la collecte terrain et la génération du rapport
+- le développement de la plateforme
+- la mise en place du backend, de l'authentification et de la gestion des utilisateurs
+- le développement d'une API sur mesure pour la génération de documents DOCX et PDF
+- l'intégration de modèles IA pour assister la structuration et la génération des rapports
+- l'automatisation de certaines étapes du workflow avec n8n
+- la mise en place de la facturation et de l'infrastructure
+
+L'objectif était de construire un produit capable de couvrir l'ensemble du parcours : **Inspection → Collecte des données → Traitement → Génération du rapport → Livraison**.
+
+## Difficultés Rencontrées
+
+**Transformer un processus basé sur des documents en données structurées.** Le principal défi consistait à sortir d'une logique où l'information était directement saisie dans un document final. Il fallait déterminer quelles données devaient être structurées, quelles informations pouvaient être générées automatiquement, quelles parties nécessitaient encore une intervention humaine, et comment conserver suffisamment de flexibilité selon les différents types d'inspection. L'objectif n'était donc pas simplement d'ajouter de l'IA à un formulaire, mais de reconstruire le processus autour d'une donnée réutilisable.
+
+**Générer des documents complexes de manière fiable.** La génération d'un rapport ne consistait pas uniquement à remplacer quelques variables dans un template : les documents peuvent contenir différentes sections selon les données collectées, des contenus variables, des observations structurées, des éléments générés ou reformulés avec l'aide de l'IA, et une mise en page qui doit rester cohérente dans le document final. J'ai donc développé une API dédiée à la génération DOCX/PDF, afin de maîtriser le processus de production des documents et de ne pas dépendre uniquement d'un outil tiers.
+
+**Utiliser l'IA sans perdre le contrôle du résultat.** L'IA peut accélérer la structuration et la rédaction, mais elle ne doit pas devenir une boîte noire qui invente des observations d'inspection entre deux paragraphes. Les workflows ont donc été pensés pour partir de données structurées et utiliser les LLM comme une couche d'assistance dans certaines étapes de traitement et de génération.
+
+**Garder une infrastructure économiquement viable.** La plateforme devait pouvoir évoluer sans imposer des coûts d'infrastructure disproportionnés. Le choix des outils et de l'architecture a donc également été guidé par la simplicité d'exploitation, la rapidité de déploiement, la capacité à évoluer progressivement et la maîtrise des coûts.
+
+## Solutions Mises en Place
+
+**1. Centralisation et structuration des données d'inspection.** La plateforme permet aux inspecteurs de saisir leurs observations dans un format structuré. Plutôt que de produire directement un document final, les informations sont enregistrées comme des données réutilisables — ce qui permet de centraliser les inspections, structurer les observations, préparer automatiquement les données nécessaires au rapport, et réutiliser les informations pour d'autres usages ou analyses.
+
+**2. Génération de rapports assistée par IA.** Une API sur mesure a été développée pour générer les documents DOCX et PDF à partir des données collectées. Des modèles IA/LLM interviennent pour assister certaines étapes de structuration et de rédaction. Le workflow permet ainsi de passer des données d'inspection à un rapport structuré en limitant fortement les opérations manuelles.
+
+**3. Orchestration des workflows avec n8n.** n8n est utilisé pour automatiser et orchestrer certaines étapes entre les différents composants de la plateforme, notamment le passage entre données d'inspection, traitement, IA et génération du document — réduisant les manipulations manuelles et évitant que les utilisateurs aient à déplacer eux-mêmes les informations entre plusieurs outils.
+
+**4. Construction de la plateforme.** La plateforme repose sur une architecture permettant de gérer les utilisateurs, les agences, les inspections, les données collectées, la génération des rapports, ainsi que la facturation et les abonnements. L'application a été déployée avec une stack permettant d'itérer rapidement tout en conservant une base technique évolutive.
+
+**5. Gestion des abonnements et de la facturation.** Stripe a été intégré pour gérer la partie abonnement et facturation, préparant la plateforme pour un fonctionnement SaaS et automatisant la gestion commerciale liée à l'utilisation du produit.
+
+## Valeur Métier Apportée
+
+La plateforme permet de transformer un processus principalement manuel en un workflow structuré et largement automatisé :
+
+- **Réduction importante du temps de traitement** — un processus nécessitant auparavant environ 4 heures de travail manuel peut être ramené à environ 15 minutes pour la génération et la finalisation du rapport.
+- **Centralisation des données** — les informations collectées ne restent plus uniquement enfermées dans des documents.
+- **Rapports plus homogènes** — la génération repose sur une structure et des modèles communs.
+- **Réduction des manipulations manuelles** — les données circulent automatiquement entre les différentes étapes du workflow.
+- **Base produit évolutive** — de nouveaux types d'inspection, modèles de rapports ou automatisations peuvent être ajoutés progressivement.
+- **Infrastructure pensée pour maîtriser les coûts**, dès les premières étapes de conception.
+
+## Stack Technique & Pourquoi Chaque Outil a Été Choisi
+
+- **Vercel** — utilisé pour déployer rapidement l'application et faciliter les itérations, avec un environnement de déploiement simple et adapté à une plateforme web évolutive.
+- **Supabase** — utilisé comme socle backend pour gérer la base de données, l'authentification, les utilisateurs et les données métier de la plateforme, sans construire et maintenir toute une infrastructure sur mesure dès le départ.
+- **n8n** — utilisé comme couche d'orchestration entre les différentes étapes du produit, connectant les données, les traitements IA et la génération documentaire dans des workflows automatisés.
+- **IA/LLM** — utilisés pour assister certaines étapes du traitement des données et de la génération des rapports, en s'appuyant sur les informations collectées et structurées plutôt qu'en générant du contenu sans contexte.
+- **API DOCX/PDF développée sur mesure** — construite pour produire les rapports finaux à partir des données structurées de la plateforme, tout en gardant le contrôle sur la structure et le format du résultat.
+- **Stripe** — intégré pour gérer les abonnements des agences et préparer le modèle SaaS de la plateforme.
+- **Claude Code & Codex** — utilisés comme outils de développement assisté par IA pour accélérer la construction du produit, notamment sur la logique applicative, les intégrations, la génération documentaire, les API et les automatisations. L'IA a accéléré la production ; elle n'a pas remplacé la réflexion sur le modèle de données, les workflows ou l'architecture.
+
+## Ce que ce projet montre
+
+Flowiq représente bien ma façon de travailler lorsqu'un besoin dépasse une simple automatisation entre deux outils. Je pars du problème métier — comment réduire le temps consacré à une tâche répétitive tout en améliorant la qualité, la traçabilité et la réutilisation des données — puis je choisis les briques adaptées et je construis le workflow de bout en bout : Application → Données → Automatisation → IA → Génération documentaire → Livraison.
+
+Ce projet combine donc plusieurs dimensions : analyse d'un processus métier, conception produit, structuration des données, développement d'une application, automatisation des workflows, intégration de l'IA et développement d'API sur mesure. L'objectif reste simple — prendre un processus qui consomme plusieurs heures et construire un système capable de le faire tourner beaucoup plus vite, sans transformer l'équipe en administrateurs d'une usine à gaz.

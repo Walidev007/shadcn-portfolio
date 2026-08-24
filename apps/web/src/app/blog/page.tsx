@@ -9,7 +9,7 @@ import { contact } from "@/components/sections/contact/config";
 import { createMetadata } from "@/lib/metadata";
 
 const title = "Blog";
-const description = "My thoughts on technology.";
+const description = "Mes réflexions sur la technologie.";
 
 export const metadata = createMetadata({
   title,

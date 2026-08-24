@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import TextReveal from "@/components/fancy/text-reveal";
 import MotionWrap from "@/components/motion-wrap";
 
@@ -16,28 +15,30 @@ function About() {
               as="h2"
               className="text-4xl leading-tight font-bold tracking-tighter sm:text-5xl md:text-5xl md:leading-tight lg:text-6xl lg:leading-tight"
             >
-              About Me
+              À propos de moi
             </TextReveal>
             <div className="space-y-4">
               <TextReveal
                 as="p"
                 className="max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400"
               >
-                I am Walid Mecheri, an AI & Automation Consultant helping
-                businesses map their processes, deploy AI agents, and
-                automate their workflows with tools like n8n, Make, and LLMs.
-                From functional cadrage workshops to production rollout and
-                team training, I turn manual, repetitive work into reliable,
-                documented automations.
+                Je suis Walid Mecheri, Product Builder spécialisé en no-code,
+                automatisation et IA. J'aide les entreprises à transformer des
+                problèmes métier concrets en solutions réellement utilisées :
+                CRM, applications internes, automatisations, workflows IA et
+                systèmes connectés. Mon rôle ne s'arrête pas au choix des outils
+                : j'analyse les besoins et les processus existants, je conçois
+                la solution et structure les données, puis je construis,
+                connecte, teste et déploie les différents outils en accompagnant
+                les utilisateurs. Mon approche est pragmatique : partir d'un
+                problème concret, construire rapidement une solution utile et
+                mesurer son impact sur le terrain.
               </TextReveal>
               <div className="flex gap-2">
                 <Button asChild variant={"outline"}>
                   <a href="resume.pdf" target="_blank">
-                    View Resume <Icons.arrowUpRight className="ml-2 size-5" />
+                    Voir le CV <Icons.arrowUpRight className="ml-2 size-5" />
                   </a>
-                </Button>
-                <Button asChild>
-                  <Link href="/about">Learn More</Link>
                 </Button>
               </div>
             </div>

@@ -1,17 +1,12 @@
 import type { Contact } from "@/types/contact";
-import { SiGithub, SiLinkedin } from "@icons-pack/react-simple-icons";
+import { SiLinkedin } from "@icons-pack/react-simple-icons";
 
 const contact: Contact = {
   email: "hello@widocode.com",
   socials: [
     {
-      name: "Github",
-      href: "https://github.com/widocode",
-      Icon: SiGithub,
-    },
-    {
       name: "Linkedin",
-      href: "https://www.linkedin.com/in/walid-mecheri",
+      href: "https://www.linkedin.com/in/walid-mecheri-wido/",
       Icon: SiLinkedin,
     },
   ],

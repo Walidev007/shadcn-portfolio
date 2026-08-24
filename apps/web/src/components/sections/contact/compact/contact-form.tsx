@@ -48,7 +48,7 @@ export default function ContactForm() {
     setIsOpen(false);
     if (!token) {
       toast.error(
-        "Captcha validation failed. Please ensure the captcha is completed.",
+        "Échec de la validation du captcha. Merci de compléter le captcha.",
         {
           position: "bottom-center",
         },
@@ -67,7 +67,7 @@ export default function ContactForm() {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Name</FormLabel>
+                <FormLabel>Nom</FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Jane Doe"
@@ -106,7 +106,7 @@ export default function ContactForm() {
                   <Textarea
                     disabled={status === "executing"}
                     placeholder={
-                      "Hello!\n\nThis is Jane Doe, from Example. Just wanted to say hi!"
+                      "Bonjour !\n\nIci Jane Doe, de Example. Je voulais juste passer un petit bonjour !"
                     }
                     {...field}
                   />
@@ -127,7 +127,7 @@ export default function ContactForm() {
             {status === "executing" && (
               <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
             )}
-            Submit
+            Envoyer
           </Button>
         </form>
       </Form>

@@ -16,9 +16,9 @@ function SignInCard() {
   return (
     <Card className="w-full max-w-xl">
       <CardHeader>
-        <CardTitle className="text-lg md:text-xl">Sign In</CardTitle>
+        <CardTitle className="text-lg md:text-xl">Connexion</CardTitle>
         <CardDescription className="text-xs md:text-sm">
-          Sign in with your account
+          Connectez-vous avec votre compte
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -40,7 +40,7 @@ function SignInCard() {
               }}
             >
               <Icons.google />
-              Sign in with Google
+              Se connecter avec Google
             </Button>
             <Button
               variant="outline"
@@ -53,7 +53,7 @@ function SignInCard() {
               }}
             >
               <Icons.gitHub />
-              Sign in with Github
+              Se connecter avec Github
             </Button>
           </div>
         </div>

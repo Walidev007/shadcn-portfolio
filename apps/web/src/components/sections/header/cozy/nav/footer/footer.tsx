@@ -15,7 +15,7 @@ export default function Footer() {
           exit="exit"
         >
           {/* space */}
-          <span>Inspired by:</span> Studio Lumio
+          <span>Inspiré de :</span> Studio Lumio
         </motion.li>
       </ul>
       <ul>
@@ -26,7 +26,7 @@ export default function Footer() {
           animate="enter"
           exit="exit"
         >
-          <span>Typography:</span> Inter
+          <span>Typographie :</span> Inter
         </motion.li>
       </ul>
       <ul>
@@ -37,7 +37,7 @@ export default function Footer() {
           animate="enter"
           exit="exit"
         >
-          <span>Images:</span> Unsplash
+          <span>Images :</span> Unsplash
         </motion.li>
       </ul>
       <ul>

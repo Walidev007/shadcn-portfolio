@@ -2,7 +2,7 @@ import type { FooterItem } from "@/types/footer";
 
 const footer: FooterItem[] = [
   {
-    title: "Home",
+    title: "Accueil",
     href: "#",
   },
 ];

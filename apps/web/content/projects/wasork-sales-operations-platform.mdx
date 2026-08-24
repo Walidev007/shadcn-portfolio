@@ -1,114 +1,114 @@
 ---
-title: "Wasork — Centralized Sales Operations Platform"
-description: End-to-end no-code system managing physical sales operations from brief to invoicing, with quote versioning, addenda, and operational KPIs.
-date: 2025-09-15
+title: "Wasork — Centralisation et automatisation des opérations de vente"
+description: Conception d'une plateforme centralisée permettant de gérer l'ensemble du cycle d'une opération de vente physique, du brief initial jusqu'à la facturation finale.
+date: 2026-06-01
 tags:
   - label: Airtable
   - label: Softr
   - label: Make
   - label: DocsAutomator
-  - label: Claude Code
   - label: Notion
 ---
 
-This was the founder's first project after leaving a sales manager position at Hermès France to start his own company; he had the client relationships and market knowledge but no operational system yet, and no in-house technical team.
+Ce projet était le premier du fondateur après avoir quitté un poste de responsable commercial chez Hermès France pour créer sa propre société ; il avait le relationnel client et la connaissance du marché, mais pas encore de système opérationnel ni d'équipe technique en interne.
 
-## Context
+## Contexte
 
-The client is a company specialized in **organizing physical sales operations for brands**, including:
+Wasork organise des opérations de vente physiques pour différentes marques :
 
-- staff sales
-- public sales
-- *friends & family* operations
-- charity sales
+- ventes au personnel
+- ventes au public
+- opérations *Friends & Family*
+- ventes solidaires
 
-These operations involve several key steps today:
+Chaque opération implique plusieurs étapes : collecte des informations, préparation du devis, gestion des modifications, suivi des performances commerciales et facturation.
 
-- collecting the information needed to organize the sale
-- building a quote
-- adjusting it through addenda
-- tracking commercial performance
-- final invoicing
+Avant le projet, ces informations et processus étaient répartis entre différents outils et traitements manuels. Cela rendait difficile :
 
-These processes were **fragmented across different tools and manual handling**, which caused:
+- la centralisation des informations liées à une opération
+- le suivi des différentes versions d'un devis
+- la gestion des modifications et avenants
+- le calcul de certains éléments liés à la performance
+- l'analyse globale des opérations réalisées
 
-- a lack of centralized information
-- a risk of errors when modifying quotes
-- limited traceability of versions
-- difficulty analyzing the performance of each operation
+## Problème
 
-## Problem
+Le principal enjeu consistait à structurer un processus métier complet, allant du besoin initial jusqu'à la facturation.
 
-The existing way of working made it hard to:
+Il fallait notamment créer un système capable de gérer plusieurs types d'opérations et de marques, différentes catégories de produits et prestations, la collecte structurée des besoins, la génération de devis, le versioning des documents, les avenants (ajout ou retrait de prestations), la remontée des KPI opérationnels, le calcul éventuel de bonus liés à la performance commerciale et la génération de la facture finale.
 
-- **structure incoming sales-operation requests**
-- **generate quotes quickly and reliably**
-- **manage modifications and addenda**
-- **centralize operational data**
-- **analyze commercial performance**
+Le défi n'était donc pas simplement de connecter quelques outils entre eux. Il fallait transformer un ensemble de processus métier en un système cohérent, utilisable par les équipes au quotidien.
 
-These limitations slowed down operation preparation and made it harder to follow the business as a whole.
+## Mon Rôle
 
-## My Role
+J'ai porté cette mission seul, sur trois rôles distincts :
 
-I led this engagement solo, across three distinct roles:
+- **Product Owner** — audit du processus existant du client, cadrage du périmètre du MVP, et estimation du coût du projet et des abonnements récurrents avant tout engagement.
+- **Product Builder No-Code** — modélisation des données et des relations entre entités, définition des règles métier, conception des interfaces utilisateurs, construction de l'architecture Airtable/Softr/Make et du workflow de génération de documents.
+- **Consultant au contact du client** — animation de sessions de validation à chaque jalon, formation du client au système livré, et prise en charge du support jusqu'à la mise en production.
 
-- **Product Owner** — auditing the client's existing process, framing the MVP scope, and estimating the project cost and ongoing subscription fees before any commitment was made.
-- **No-Code Product Builder** — designing the data model and business rules, building the Airtable/Softr/Make architecture, and developing the document-generation workflow.
-- **Client-facing Consultant** — running validation sessions at each milestone, training the client on the delivered system, and handling support through go-live.
+Il n'y avait pas d'équipe derrière moi sur ce projet — découverte, construction et livraison m'appartenaient entièrement. L'objectif était de construire un produit métier cohérent plutôt qu'une succession de formulaires et d'automatisations indépendantes, en structurant le cycle complet : **Brief → Devis → Avenants → KPI → Facturation**.
 
-There was no team behind me on this project — discovery, build, and delivery were all mine to own.
+## Difficultés Rencontrées
 
-## Problems Encountered
+**Un processus métier avec de nombreuses dépendances.** Chaque opération implique plusieurs éléments liés entre eux : marque, catégories de produits, prestations, devis, avenants, performances et facturation. Une modification à un endroit pouvait avoir un impact sur plusieurs autres parties du système, d'où la nécessité d'un modèle de données suffisamment structuré pour garantir la cohérence de l'ensemble.
 
-- The client couldn't visualize an abstract system from a spec document alone — he needed to *see* something before he could give useful feedback.
-- Softr (the frontend layer) couldn't natively render some of the specific charts the client needed — e.g. sales quantity by seller and by hour interval, broken down by category — a hard tool limitation, not a data problem.
-- The document-generation tool (DocsAutomator) required a very specific JSON payload structure, and its own documentation was incomplete and inconsistent with what the tool actually expected — repeated trial and error, plus a support ticket, was needed to get the payload structure right.
-- The client wanted branded invoices and quotes but had no existing templates of his own — only examples from his previous employer, which had to be redesigned from scratch as reusable templates with dynamic placeholders and conditional sections.
-- Review cycles were slow: the client needed time to check every delivery (database structure, Softr screens, seeded product/sales data) before validating the next step, so the whole build had to be sequenced and communicated carefully rather than delivered as one big drop.
+**La gestion du versioning des devis.** Un devis pouvait évoluer plusieurs fois avant sa validation. Le système devait permettre de générer plusieurs versions d'un même devis, conserver l'historique, identifier la version active ou validée, et générer automatiquement les documents correspondants — sans qu'une nouvelle génération n'écrase simplement la précédente.
 
-## Solutions Built
+**Des règles métier variables selon les opérations.** Les opérations pouvaient comporter différents types de prestations, de produits et de conditions, et certaines données devaient apparaître ou disparaître selon le contexte. La difficulté consistait à construire des formulaires et une logique suffisamment flexibles pour gérer ces scénarios sans multiplier les outils ou les processus parallèles.
 
-The engagement moved through four phases, each combining project-management discipline with hands-on product building.
+**Transformer les KPI opérationnels en données exploitables.** La performance commerciale ne se limitait pas à un simple chiffre d'affaires : ventes par catégorie, par vendeur, par heure, quantités vendues, chiffre d'affaires journalier, nombre d'encaissements et de caisses, taux de présence par rapport aux réservations, et éventuels bonus liés à la performance. Il fallait structurer ces indicateurs pour qu'ils puissent être exploités dans le processus de facturation et d'analyse.
 
-**1. Framing — Project Management.** Audited the client's existing manual process piece by piece and logged every requirement and decision in a dedicated Notion workspace. Defined the MVP scope, planned every build step, and estimated the full cost upfront — my service fee plus the tool subscriptions the client would need to pay for. Produced functional designs — schemas and flow diagrams — before any development started, so the client was committing to a defined plan, not an open-ended build.
+**Des contraintes techniques additionnelles rencontrées en cours de construction :**
 
-**2. Early validation — Product Building.** Rather than build the full system against a spec the client couldn't picture, I spent one day building a throwaway frontend MVP so he could *see* the direction early. Once we'd walked through it and resolved his questions, I moved to the real Softr build with confidence that the direction was validated.
+- le client ne pouvait pas se projeter dans un système abstrait à partir d'un simple document de spécifications — il avait besoin de *voir* quelque chose avant de pouvoir donner un retour utile ;
+- Softr (la couche frontend) ne pouvait pas nativement afficher certains graphiques dont le client avait besoin, par exemple le volume de ventes par vendeur et par tranche horaire, ventilé par catégorie — une limite technique de l'outil, pas un problème de données ;
+- DocsAutomator exigeait une structure de payload JSON très précise, avec une documentation incomplète et incohérente avec ce que l'outil attendait réellement — de nombreux essais-erreurs, ainsi qu'un ticket de support, ont été nécessaires pour obtenir la bonne structure ;
+- le client voulait des devis et factures à ses couleurs, mais n'avait aucun modèle existant, seulement des exemples de son ancien employeur, qu'il a fallu redessiner entièrement en modèles réutilisables avec champs dynamiques et sections conditionnelles ;
+- les cycles de relecture étaient lents, ce qui imposait de séquencer et de communiquer soigneusement plutôt que de tout livrer en une seule fois.
 
-**3. Core build — Product Building.** Built the Airtable base — tables, relational links, and scripts — with solid documentation, evolving it through small, incremental changes as requirements were refined rather than re-architecting from scratch each time. In parallel, set up the accounts and logins across the automation toolchain (Softr, Make, DocsAutomator) so integrations could go live without credential gaps mid-build.
+## Solutions Mises en Place
 
-**4. Difficulties — Product Building.** Two technical issues came up during the build and were solved directly:
+**1. Cadrage — Gestion de Projet.** Audit du processus manuel existant du client, étape par étape, avec chaque besoin et décision consigné dans un espace Notion dédié. Définition du périmètre du MVP, planification de chaque étape de construction, et estimation du coût total en amont. Production de schémas fonctionnels et de diagrammes de flux avant tout développement, afin que le client s'engage sur un plan défini plutôt que sur une construction ouverte.
 
-- Softr couldn't natively render some of the charts the client needed (sales quantity by seller and by hour interval, broken down by category) — a hard tool limitation. I built custom scripts to fetch and shape the exact data by date interval and data type, without changing the workflow already validated with the client.
-- The client had no branded templates for his new company, only examples from his previous role. I turned those into reusable templates, then had to reverse-engineer the correct JSON payload structure for DocsAutomator against incomplete vendor documentation — contacting their support and using Claude Code to help write the transformation script. I mapped the data inside the Make workflow, built dedicated routes per document type, and tested against the tool's own logs until output was reliable. Everything solved was documented: payload structure, template placeholders, conditional logic, and calculation formulas.
+**2. Validation précoce — Construction Produit.** Plutôt que de construire le système complet sur la base d'une spécification que le client ne pouvait pas se représenter, construction en une journée d'un MVP frontend jetable pour qu'il puisse voir la direction rapidement. Une fois les échanges terminés et ses questions résolues, passage à la vraie construction Softr avec la certitude que la direction était validée.
 
-**5. Delivery — Project Management.** Sequenced the rollout around the client's own pace of review — he needed time to check each delivery (database structure, Softr screens, seeded data) before validating the next step, so I planned the schedule and kept a continuous discussion running instead of dropping the whole system at once. Linked the document-generation tool into Softr buttons, wired to trigger the corresponding Make workflows, then live-tested the full system and presented it to the client page by page, feature by feature. The client validated the delivery and paid the final part of the cost.
+**3. Modélisation du système métier — Construction Produit.** Structuration du modèle de données autour des différentes entités du projet : opérations de vente, marques, catégories de produits, prestations, devis, versions de devis, avenants, KPI opérationnels, règles de bonus et facturation. **Airtable** a été utilisé comme socle de données et moteur de logique métier, construit et documenté par petits changements incrémentaux au fur et à mesure de l'affinement des besoins, avec l'objectif de créer une source de vérité unique pour l'ensemble du processus.
 
-## Business Value Delivered
+**4. Construction de l'interface métier — Construction Produit.** Une interface dédiée, construite avec **Softr** et connectée directement au modèle de données, permet aux utilisateurs de créer et suivre une opération, compléter les informations du brief, gérer les prestations, générer des devis, suivre les différentes versions, créer des avenants, saisir les données opérationnelles et suivre les indicateurs liés à chaque vente.
 
-The client went from a fully manual process (Airtable forms + email) to a fully integrated no-code system:
+**5. Génération automatisée des devis et avenants — Automatisation.** Les données structurées dans Airtable sont utilisées pour générer automatiquement les documents nécessaires : devis à partir des prestations sélectionnées, annexes dynamiques, nouvelles versions de document avec conservation de l'historique, et avenants associés. **Make** orchestre les workflows entre les différentes briques du système, et **DocsAutomator** génère automatiquement les documents à partir des données métier. Deux points de friction ont été résolus directement en cours de construction : des scripts sur mesure pour récupérer et mettre en forme les données que Softr ne pouvait pas afficher nativement (ventes par vendeur et tranche horaire, ventilées par catégorie), et une rétro-ingénierie de la structure de payload JSON attendue par DocsAutomator à partir d'une documentation éditeur incomplète — en contactant leur support et en s'appuyant sur Claude Code pour écrire le script de transformation, avec des routes Make dédiées par type de document.
 
-- **One centralized system** — a real database and a modern, tablet- and mobile-friendly frontend replacing scattered Airtable forms and email threads, usable on the floor during operations.
-- **Automated, traceable documents** — branded invoices and quotes generated from his own templates instead of built by hand, with sales briefs fully versioned to track every change.
-- **A delivered, adopted MVP** — the client was onboarded and can now use the system and make changes himself, in both Softr and Airtable, with users and brands managed directly in the platform.
+**6. Gestion des KPI et de la performance — Construction Produit.** Le système centralise les données opérationnelles liées aux ventes (chiffre d'affaires, volumes vendus, performance par catégorie/vendeur/tranche horaire, nombre d'encaissements, taux de présence, éventuels bonus liés aux résultats), qui alimentent ensuite le suivi global de l'opération et peuvent être utilisées dans le calcul de la facturation finale.
 
-- **Full centralization of operations** — every brief, quote, addendum, and invoice lives in one system instead of scattered forms and email threads.
-- **Reduced sales-preparation time** — briefs, quotes, and addenda are generated and updated in minutes instead of manual back-and-forth.
-- **Complete document traceability** — quotes, addenda, and invoices are all versioned and historized.
-- **Better commercial performance analysis** — operational KPIs (sales by category/hour/seller, no-show rate, commission bonuses) are tracked directly in the system instead of reconstructed after the fact.
-- **A scalable model for future growth** — the data and automation architecture is built to extend as the business adds new operation types or volume.
+**7. Livraison — Gestion de Projet.** Séquencement du déploiement au rythme de relecture du client, connexion de l'outil de génération de documents aux boutons Softr pour déclencher les workflows Make correspondants, puis test en conditions réelles de l'ensemble du système et présentation au client page par page, fonctionnalité par fonctionnalité. Le client a validé la livraison et réglé la dernière partie du coût.
+
+## Valeur métier apportée
+
+Le client est passé d'un processus entièrement manuel (formulaires Airtable + email) à un système no-code entièrement intégré, structuré autour d'un parcours unique — **Brief → Configuration → Devis → Versioning → Avenants → Opération → KPI → Facturation** — où chaque étape réutilise les données générées précédemment, sans double saisie :
+
+- **Centralisation complète des opérations** — chaque brief, devis, avenant et facture vit dans un seul système au lieu d'être dispersé entre formulaires et emails.
+- **Réduction du temps de préparation commerciale** — briefs, devis et avenants sont générés et mis à jour en quelques minutes au lieu d'allers-retours manuels.
+- **Traçabilité documentaire complète** — devis, avenants et factures sont tous versionnés et historisés.
+- **Meilleure analyse de la performance commerciale** — les KPI opérationnels sont suivis directement dans le système plutôt que reconstitués après coup, jusqu'au calcul de la facturation.
+- **Un MVP livré et adopté** — le client a été formé et peut désormais utiliser et faire évoluer lui-même le système, dans Softr comme dans Airtable, avec la gestion des utilisateurs et des marques directement dans la plateforme.
+- **Un modèle évolutif** — l'architecture de données et d'automatisation peut intégrer de nouvelles règles métier, de nouveaux types d'opérations ou de nouveaux modules à mesure que l'activité grandit.
 
 <aside>
 
-The system stands as a solid operational foundation for the future growth of the business.
+Le système constitue une base opérationnelle solide pour la croissance future de l'entreprise.
 
 </aside>
 
-## Technical Stack & Why Each Tool Was Selected
+## Stack Technique & Pourquoi Chaque Outil a Été Choisi
 
-- **Airtable** — chosen as the data and business-logic layer because it gives a brand-new one-person company a real relational database with a client-editable interface, without the cost or delay of a custom backend.
-- **Softr** — selected for the frontend because it builds directly on top of Airtable and produces a tablet/mobile-friendly interface fast, which mattered given the tight MVP budget and timeline.
-- **Make** — the automation and integration layer connecting Airtable, Softr, and the document-generation tool; chosen over more code-heavy alternatives because it kept the whole system maintainable by a non-developer client after handover.
-- **DocsAutomator** — used for automated PDF quote/invoice generation from the client's own templates; despite the documentation friction, it was the right tool once the payload structure was solved, since it let the client keep his real, branded document designs rather than generic auto-formatted output.
-- **Claude Code** — used to help reverse-engineer and script the correct JSON payload transformation for DocsAutomator, turning a documentation gap into a solved integration faster than manual trial and error alone.
-- **Notion** — used as the single source of truth for requirements, decisions, and scope throughout the audit and build, so nothing discussed with the client got lost between sessions.
+- **Airtable** — utilisé comme socle central du produit, pour structurer les différentes entités métier, leurs relations et certaines règles de gestion, tout en offrant une grande flexibilité pour faire évoluer le modèle sans le coût ni le délai d'un backend sur mesure.
+- **Softr** — utilisé pour construire rapidement les interfaces permettant aux équipes de consulter, créer et gérer les données du système, adapté tablette/mobile, ce qui comptait vu le budget et le calendrier serrés du MVP.
+- **Make** — utilisé comme couche d'orchestration reliant les différentes briques du système et automatisant les actions entre les données, les interfaces et la génération documentaire, en gardant l'ensemble maintenable par un client non-développeur après la passation.
+- **DocsAutomator** — utilisé pour générer automatiquement devis, avenants et factures à partir des données structurées dans le système ; malgré les frictions documentaires, c'était le bon outil une fois la structure de payload résolue, car il permettait au client de garder ses vrais designs de documents à ses couleurs plutôt qu'un rendu générique automatique.
+- **Claude Code** — utilisé pour aider à rétro-ingénierer et scripter la transformation de payload JSON correcte pour DocsAutomator, transformant un manque de documentation en intégration résolue plus vite qu'un essai-erreur manuel seul.
+- **Notion** — utilisé comme source unique de vérité pour les besoins, décisions et périmètre tout au long de l'audit et de la construction, afin que rien de discuté avec le client ne se perde d'une session à l'autre.
+
+## Ce que ce projet montre
+
+Ce projet résume bien ma façon de travailler comme Product Builder. Je ne pars pas d'un outil en me demandant quoi en faire, je pars du problème métier : comment structurer un processus complexe, connecter les données, automatiser les tâches répétitives et fournir aux utilisateurs un outil suffisamment simple pour être réellement utilisé. Ensuite je choisis et j'assemble les briques nécessaires pour construire la solution — ici, Airtable pour les données, Softr pour l'expérience utilisateur, Make pour l'orchestration, DocsAutomator pour les documents : un produit métier construit rapidement avec des outils low-code, mais pensé comme un véritable système plutôt que comme un empilement d'automatisations.

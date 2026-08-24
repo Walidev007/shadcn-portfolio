@@ -1,0 +1,65 @@
+---
+title: "Top Habitat — Automatisation de la gestion des sinistres et portail interne"
+description: Conception et mise en place d'automatisations pour simplifier la gestion administrative et opérationnelle des dossiers de sinistres.
+date: 2025-09-01
+tags:
+  - label: Pipedrive
+  - label: n8n
+  - label: ClickSend
+  - label: YouSign
+  - label: Typeform
+  - label: EspoCRM
+---
+
+Top Habitat gère des dossiers de sinistres pour le compte d'experts en inspection et de gestionnaires de dossiers juridiques, un processus jusque-là largement manuel et dispersé entre plusieurs outils.
+
+## Contexte
+
+Chaque dossier de sinistre implique plusieurs étapes administratives et opérationnelles : collecte des documents nécessaires, envoi de conventions et de mandats, génération de devis et de factures, puis suivi des échanges avec les différents interlocuteurs (experts, assurés, gestionnaires). Ces étapes étaient traitées manuellement, dossier par dossier, sans outil centralisé pour en suivre l'avancement.
+
+## Problème
+
+Cette gestion manuelle rendait difficile de :
+
+- **collecter les documents nécessaires** de façon fiable et rapide auprès des différentes parties
+- **envoyer conventions et mandats** sans repasser à chaque fois par une rédaction manuelle
+- **générer devis et factures** de façon homogène pour chaque dossier
+- **suivre l'avancement des dossiers** dans un seul endroit, plutôt que dispersé entre emails et documents séparés
+- **donner aux équipes une vision claire** des dossiers en cours et des actions restant à faire
+
+## Mon Rôle
+
+J'ai porté la conception et la mise en place des automatisations et du portail :
+
+- audit du parcours de traitement d'un dossier de sinistre, de l'ouverture à la clôture
+- conception des automatisations couvrant la collecte de documents, l'envoi de conventions et la génération de devis/factures
+- déploiement de Pipedrive comme point de départ du parcours commercial et administratif
+- construction d'un portail dédié basé sur EspoCRM pour centraliser le suivi des dossiers côté experts et gestionnaires
+
+## Solutions Mises en Place
+
+**1. Collecte de documents automatisée.** Mise en place de formulaires Typeform pour la collecte structurée des documents et informations nécessaires à l'ouverture d'un dossier, avec récupération automatique dans le système plutôt qu'un échange d'emails.
+
+**2. Envoi de conventions et mandats.** Automatisation de la génération et de l'envoi des conventions et mandats via YouSign, avec signature électronique, supprimant les allers-retours manuels de documents papier ou PDF.
+
+**3. Communications automatisées.** Intégration de ClickSend pour automatiser les communications (SMS/courriers) avec les différents interlocuteurs à chaque étape clé du dossier.
+
+**4. Portail centralisé.** Construction d'un portail dédié sur EspoCRM permettant aux experts d'inspection et aux gestionnaires de dossiers juridiques de suivre l'avancement de chaque sinistre, d'accéder aux documents et informations nécessaires à leur traitement, sans dépendre d'échanges dispersés.
+
+**5. Pipeline commercial et suivi.** Déploiement de Pipedrive pour structurer le suivi des dossiers en amont et connecter l'ensemble des automatisations autour d'un pipeline clair.
+
+## Valeur Métier Apportée
+
+- **Des processus manuels et dispersés transformés en workflows structurés**, connectés et automatisés.
+- **Un gain de temps** sur la collecte de documents, l'envoi de conventions et la génération de devis/factures.
+- **Une meilleure visibilité** sur l'avancement de chaque dossier grâce au portail centralisé.
+- **Des communications plus fiables** avec les différents interlocuteurs, automatisées à chaque étape clé.
+
+## Stack Technique & Pourquoi Chaque Outil a Été Choisi
+
+- **Pipedrive** — utilisé comme pipeline pour structurer et suivre les dossiers en amont du traitement.
+- **n8n** — utilisé comme couche d'automatisation centrale, connectant les différents outils entre eux tout au long du parcours d'un dossier.
+- **ClickSend** — intégré pour automatiser les communications avec les différents interlocuteurs.
+- **YouSign** — utilisé pour la signature électronique des conventions et mandats, sans échange papier.
+- **Typeform** — utilisé pour la collecte structurée des documents et informations nécessaires à l'ouverture d'un dossier.
+- **EspoCRM** — choisi comme base du portail dédié, permettant aux experts et gestionnaires de suivre leurs dossiers de façon centralisée.

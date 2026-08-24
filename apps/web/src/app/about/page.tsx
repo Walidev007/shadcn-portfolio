@@ -51,7 +51,7 @@ export default function About() {
             as="h1"
             className="leading-wide tracking-relaxed z-20 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
           >
-            Automation
+            Automatisation
           </TextReveal>
           <TextReveal
             as="h1"
@@ -74,7 +74,7 @@ export default function About() {
       <section className="py-12">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-5 md:gap-8">
           <div className="col-span-1 md:col-span-2">
-            <h2 className="text-xl font-semibold sm:text-2xl">About</h2>
+            <h2 className="text-xl font-semibold sm:text-2xl">À propos</h2>
           </div>
           <div className="col-span-1 md:col-span-3">
             <div className="space-y-8">
@@ -82,31 +82,35 @@ export default function About() {
                 as="h3"
                 className="font-serif text-3xl leading-tight sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl"
               >
-                I turn manual, repetitive business processes into reliable AI
-                agents and automated workflows.
+                Je transforme des processus métier manuels et répétitifs en
+                agents IA fiables et workflows automatisés.
               </TextReveal>
               <TextReveal
                 as="p"
                 className="text-muted-foreground text-base leading-relaxed sm:text-lg md:text-lg lg:text-xl xl:text-2xl"
               >
-                I started as a WordPress and PrestaShop integrator, building and
-                maintaining e-commerce sites for agencies across Lyon. That
-                hands-on web development background gave me a solid technical
-                base, which I carried into a technico-functional role at
-                Disneyland Paris, piloting Run and Build for an international
-                CMS platform used across Disney's Europe, Americas, and Asia
-                entities — coordinating Product, Design, IT, and QA teams
-                through JIRA and Agile/Scrum delivery. Today, as an independent
-                consultant, I combine that functional and technical experience
-                to help businesses map their processes, identify what can be
-                automated, and design AI agents and automations with n8n, Make,
-                Power Automate, and LLMs like Claude and ChatGPT — from framing
-                workshops through configuration, deployment, documentation, and
-                team training.
+                Je suis Product Builder et consultant technico-fonctionnel.
+                J'aide les entreprises à transformer leurs besoins réels en
+                solutions concrètes — applications métier, automatisations,
+                agents IA, CRM, ERP et outils collaboratifs. J'ai commencé par
+                plus de six ans en développement web avant d'évoluer vers la
+                coordination produit et le conseil, notamment en pilotant
+                l'évolution fonctionnelle d'un CMS utilisé par les entités
+                internationales de Disneyland Paris en Europe, aux Amériques et
+                en Asie — en coordonnant les équipes métier, l'éditeur de la
+                plateforme et les autres parties prenantes sur la gestion de
+                contenu, la documentation, les migrations et le support
+                utilisateur. Aujourd'hui, j'accompagne des organisations de
+                toute taille dans leur transformation digitale et IA : analyse
+                des besoins et ateliers, MVP et applications métier, agents IA
+                et automatisation, intégrations systèmes, déploiement, conduite
+                du changement et formation. Mon approche est pragmatique :
+                partir du besoin réel, livrer rapidement quelque chose d'utile,
+                puis l'améliorer grâce aux retours du terrain.
               </TextReveal>
               <Button asChild variant={"outline"} className="rounded-full px-6">
                 <a href="resume.pdf" target="_blank">
-                  View Resume <Icons.arrowUpRight className="ml-2 size-5" />
+                  Voir le CV <Icons.arrowUpRight className="ml-2 size-5" />
                 </a>
               </Button>
             </div>
@@ -118,7 +122,7 @@ export default function About() {
       <section className="py-12">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-5 md:gap-8">
           <div className="col-span-1 md:col-span-2">
-            <h2 className="text-xl font-semibold sm:text-2xl">Skills</h2>
+            <h2 className="text-xl font-semibold sm:text-2xl">Compétences</h2>
           </div>
           <div className="col-span-1 md:col-span-3">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-1 md:gap-6 xl:grid-cols-2">
@@ -176,7 +180,7 @@ export default function About() {
       <section className="py-12">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-5 md:gap-8">
           <div className="col-span-1 md:col-span-2">
-            <h2 className="text-xl font-semibold sm:text-2xl">Experience</h2>
+            <h2 className="text-xl font-semibold sm:text-2xl">Expérience</h2>
           </div>
           <div className="col-span-1 md:col-span-3">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-1 md:gap-6 xl:grid-cols-2">
@@ -187,6 +191,7 @@ export default function About() {
                   description={experience.description}
                   company={experience.company}
                   duration={experience.duration}
+                  slug={experience.slug}
                 />
               ))}
             </div>

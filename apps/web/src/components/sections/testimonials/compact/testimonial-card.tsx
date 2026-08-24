@@ -25,20 +25,20 @@ function TestimonialCard({
         <div className="h-12 w-12 overflow-hidden rounded-full border-2 border-white">
           <Image
             src={image || "/placeholder.svg"}
-            alt={name || "Anonymous"}
+            alt={name || "Anonyme"}
             className="aspect-square h-auto w-full rounded-full object-cover"
             height={40}
             width={40}
           />
         </div>
         <div>
-          <p className="font-semibold">{name || "Anonymous"}</p>
+          <p className="font-semibold">{name || "Anonyme"}</p>
           {username && <p className="text-sm text-gray-500">{username}</p>}
         </div>
       </CardHeader>
       <CardContent className="p-4">
         <p className="text-sm leading-loose">
-          {testimonial || "No testimonial provided."}
+          {testimonial || "Aucun témoignage fourni."}
         </p>
       </CardContent>
     </Card>

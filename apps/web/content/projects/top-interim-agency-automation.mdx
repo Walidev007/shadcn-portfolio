@@ -1,0 +1,71 @@
+---
+title: "Top Intérim — Automatisation des processus d'une agence d'intérim"
+description: Conception et déploiement d'un système connecté pour automatiser plusieurs processus métier et administratifs d'une agence d'intérim.
+date: 2025-05-01
+tags:
+  - label: Notion
+  - label: Make
+  - label: n8n
+  - label: Sellsy
+  - label: Bizneo
+  - label: ClickSend
+  - label: ChatGPT
+---
+
+Top Intérim pilotait l'ensemble de son activité — candidats, missions, contrats, facturation — directement depuis Notion, sans automatisation entre les différentes étapes du processus.
+
+## Contexte
+
+Une agence d'intérim gère au quotidien un grand nombre de processus interdépendants : mise en relation des candidats avec les missions disponibles, rédaction des contrats, suivi du pointage, facturation, et prospection commerciale pour trouver de nouvelles missions. Chez Top Intérim, l'ensemble de ces processus reposait sur Notion comme outil central, mais sans connexion automatisée entre les étapes — chaque passage d'une étape à l'autre nécessitait une intervention manuelle.
+
+## Problème
+
+Ce fonctionnement rendait difficile de :
+
+- **faire correspondre rapidement candidats et missions** sans reprendre manuellement les critères à chaque fois
+- **générer contrats et documents de mission** sans les rédiger un par un
+- **suivre le pointage** des missions en cours de façon fiable et centralisée
+- **facturer** de manière homogène et sans erreur à partir des données de mission
+- **prospecter efficacement** sans y consacrer un temps disproportionné par rapport au reste de l'activité
+
+L'ensemble de ces tâches représentait une charge de travail manuelle importante pour une équipe de taille réduite.
+
+## Mon Rôle
+
+J'ai porté la conception et le déploiement du système connecté :
+
+- audit des processus existants autour de Notion et identification des tâches automatisables
+- conception des automatisations couvrant le matching candidats/missions, les contrats, le pointage, la facturation et la prospection
+- connexion de l'ensemble des outils (Sellsy, Bizneo, ClickSend, ChatGPT) autour de Notion comme source de vérité
+- construction des workflows Make et n8n orchestrant les échanges entre ces outils
+
+## Solutions Mises en Place
+
+**1. Matching candidats/missions.** Automatisation du rapprochement entre les profils candidats enregistrés et les missions disponibles, réduisant le temps passé à croiser manuellement les critères.
+
+**2. Contrats et missions.** Automatisation de la génération des contrats et documents de mission à partir des données centralisées dans Notion, plutôt qu'une rédaction manuelle pour chaque mission.
+
+**3. Pointage et facturation.** Connexion des outils de gestion (Sellsy, Bizneo) pour automatiser le suivi du pointage et la génération des factures à partir des données de mission, réduisant les ressaisies et les risques d'erreur.
+
+**4. Communications automatisées.** Intégration de ClickSend pour automatiser les communications liées aux missions et aux candidats à chaque étape clé.
+
+**5. Prospection assistée par IA.** Utilisation de ChatGPT pour assister certains processus de prospection commerciale, en réduisant le temps de préparation nécessaire.
+
+**6. Orchestration.** Mise en place de workflows Make et n8n connectant l'ensemble de ces outils autour de Notion, afin que chaque étape déclenche automatiquement la suivante sans intervention manuelle.
+
+## Valeur Métier Apportée
+
+- **Une réduction d'environ 35 % du travail manuel** sur l'ensemble des processus couverts.
+- **Des données centralisées** autour de Notion, avec une circulation automatisée entre les différents outils métier.
+- **Un matching candidats/missions plus rapide**, réduisant le temps de traitement de chaque mission.
+- **Une facturation plus fiable**, générée directement à partir des données de mission plutôt que ressaisie manuellement.
+
+## Stack Technique & Pourquoi Chaque Outil a Été Choisi
+
+- **Notion** — conservé comme source unique de vérité pour les candidats, les missions et les processus, évitant de reconstruire un système parallèle.
+- **Make** — utilisé comme couche d'automatisation principale pour connecter Notion aux autres outils métier.
+- **n8n** — utilisé en complément de Make pour certains workflows spécifiques, notamment autour du pointage et de la facturation.
+- **Sellsy** — utilisé pour la facturation, connecté aux données de mission pour générer les factures automatiquement.
+- **Bizneo** — utilisé pour la gestion du pointage et du suivi RH des missions.
+- **ClickSend** — intégré pour automatiser les communications avec candidats et clients.
+- **ChatGPT** — utilisé pour assister certains processus de prospection commerciale et réduire le temps de préparation.

@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import MotionWrap from "@/components/motion-wrap";
 
 import { Button } from "@repo/ui/button";
@@ -13,25 +12,27 @@ function About() {
         <div className="grid gap-10 lg:grid-cols-2">
           <div className="space-y-4">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              About Me
+              À propos de moi
             </h2>
             <div className="space-y-4">
               <p className="max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                I am Walid Mecheri, an AI & Automation Consultant helping
-                businesses map their processes, deploy AI agents, and
-                automate their workflows with tools like n8n, Make, and LLMs.
-                From functional cadrage workshops to production rollout and
-                team training, I turn manual, repetitive work into reliable,
-                documented automations.
+                Je suis Walid Mecheri, Product Builder spécialisé en no-code,
+                automatisation et IA. J'aide les entreprises à transformer des
+                problèmes métier concrets en solutions réellement utilisées :
+                CRM, applications internes, automatisations, workflows IA et
+                systèmes connectés. Mon rôle ne s'arrête pas au choix des outils
+                : j'analyse les besoins et les processus existants, je conçois
+                la solution et structure les données, puis je construis,
+                connecte, teste et déploie les différents outils en accompagnant
+                les utilisateurs. Mon approche est pragmatique : partir d'un
+                problème concret, construire rapidement une solution utile et
+                mesurer son impact sur le terrain.
               </p>
               <div className="flex gap-2">
                 <Button asChild variant={"outline"}>
                   <a href="resume.pdf" target="_blank">
-                    View Resume <Icons.arrowUpRight className="ml-2 size-5" />
+                    Voir le CV <Icons.arrowUpRight className="ml-2 size-5" />
                   </a>
-                </Button>
-                <Button asChild>
-                  <Link href="/about">Learn More</Link>
                 </Button>
               </div>
             </div>

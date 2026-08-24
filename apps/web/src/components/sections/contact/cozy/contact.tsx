@@ -20,11 +20,11 @@ function Contact() {
             as="h2"
             className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl"
           >
-            Contact Me
+            Contactez-moi
           </TextReveal>
           <TextReveal as="p" className="text-muted-foreground max-w-[600px]">
-            Have a question or want to work together? Send me a message using
-            the form.
+            Une question ou une envie de collaborer ? Envoyez-moi un message
+            via le formulaire.
           </TextReveal>
         </div>
         <div className="flex flex-wrap">
@@ -43,7 +43,7 @@ function Contact() {
               </Link>
             </div>
             <div>
-              <p className="text-muted-foreground text-sm">Socials</p>
+              <p className="text-muted-foreground text-sm">Réseaux</p>
               <div className="flex flex-col gap-1">
                 {contact.socials.map(({ Icon, name, href }, index) => (
                   <Link

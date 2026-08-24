@@ -21,7 +21,7 @@ const Index: React.FC<IndexProps> = ({ src, isActive }) => {
       <Image
         src={`/images/nav/${src}`}
         fill={true}
-        alt={"An image to describe the selected link"}
+        alt={"Une image illustrant le lien sélectionné"}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         // priority={true}
       />

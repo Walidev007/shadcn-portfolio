@@ -84,7 +84,7 @@ function ProjectCard({
                 </Button>
               </TooltipTrigger>
               <TooltipContent>
-                <p>More Details</p>
+                <p>Plus de détails</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>

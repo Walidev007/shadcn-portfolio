@@ -16,14 +16,14 @@ function Contact() {
         <div className="grid gap-10 lg:grid-cols-2">
           <div className="space-y-3">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              Contact Me
+              Contactez-moi
             </h2>
             <p className="text-muted-foreground max-w-[600px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Have a question or want to work together? Send me a message using
-              the form.
+              Une question ou une envie de collaborer ? Envoyez-moi un message
+              via le formulaire.
             </p>
             <p className="text-muted-foreground">
-              Email:{" "}
+              Email :{" "}
               <a className="hover:underline" href={`mailto:${contact.email}`}>
                 {contact.email}
               </a>

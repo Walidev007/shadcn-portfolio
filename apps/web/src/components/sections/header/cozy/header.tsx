@@ -1,17 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import { metadata as meta } from "@/app/config";
 import MotionLink from "@/components/fancy/link";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 
-import { background, opacity } from "./anim";
-import Nav from "./nav";
 import styles from "./style.module.scss";
 
 const Header = () => {
-  const [isActive, setIsActive] = useState<boolean>(false);
-
   return (
     <motion.header
       className={styles.header}
@@ -32,32 +26,7 @@ const Header = () => {
         >
           Walid MECHERI
         </MotionLink>
-        <div onClick={() => setIsActive(!isActive)} className={styles.el}>
-          <div className={styles.label}>
-            <motion.p
-              variants={opacity}
-              animate={!isActive ? "open" : "closed"}
-            >
-              Menu
-            </motion.p>
-            <motion.p variants={opacity} animate={isActive ? "open" : "closed"}>
-              Close
-            </motion.p>
-          </div>
-          <div
-            className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}
-          ></div>
-        </div>
       </div>
-      <motion.div
-        variants={background}
-        initial="initial"
-        animate={isActive ? "open" : "closed"}
-        className={styles.background}
-      ></motion.div>
-      <AnimatePresence mode="wait">
-        {isActive && <Nav setIsActive={setIsActive} />}
-      </AnimatePresence>
     </motion.header>
   );
 };

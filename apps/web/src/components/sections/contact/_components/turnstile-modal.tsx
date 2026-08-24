@@ -32,7 +32,7 @@ export function TurnstileModal({ open, callback }: TurnstileModalProps) {
     !env.NEXT_PUBLIC_TURNSTILE_SITE_KEY
   ) {
     return <div className="mt-4">
-      <FormError message={"This contact form is misconfigured. Please check the form settings and try again."} />
+      <FormError message={"Ce formulaire de contact est mal configuré. Merci de vérifier les paramètres du formulaire et de réessayer."} />
     </div>;
   }
 
@@ -45,10 +45,10 @@ export function TurnstileModal({ open, callback }: TurnstileModalProps) {
     >
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Verify Your Identity</DialogTitle>
+          <DialogTitle>Vérification d'identité</DialogTitle>
           <DialogDescription>
-            Before submitting the form, we need to confirm that you&apos;re not
-            a robot.
+            Avant d'envoyer le formulaire, nous devons confirmer que vous
+            n'êtes pas un robot.
           </DialogDescription>
         </DialogHeader>
         <div className="relative flex flex-col py-4 md:py-0">
@@ -83,7 +83,7 @@ export function TurnstileModal({ open, callback }: TurnstileModalProps) {
                 >
                   <Icons.spinner className="h-7 w-7 animate-spin" />
                 </div>
-                Loading
+                Chargement
               </div>
               <div>
                 <p className={"max-w-[60px] text-xs font-semibold"}>

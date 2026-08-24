@@ -15,11 +15,11 @@ function Experiences() {
               as="h2"
               className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl/none"
             >
-              My Experience
+              Mon Expérience
             </TextReveal>
             <TextReveal as="p" className="text-gray-500 dark:text-gray-400">
-              Here are some of my work experiences where I&apos;ve turned
-              challenges into accomplishments, making things happen.
+              Voici quelques-unes de mes expériences professionnelles où
+              j&apos;ai transformé des défis en réussites concrètes.
             </TextReveal>
           </div>
           <div className="grid gap-4">
@@ -30,6 +30,7 @@ function Experiences() {
                 description={experience.description}
                 company={experience.company}
                 duration={experience.duration}
+                slug={experience.slug}
               />
             ))}
           </div>

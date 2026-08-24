@@ -7,8 +7,8 @@ import Line from "@/components/fancy/line";
 import TextReveal from "@/components/fancy/text-reveal";
 import { createMetadata } from "@/lib/metadata";
 
-const title = "Projects";
-const description = "Here are some projects I have worked on.";
+const title = "Projets";
+const description = "Voici quelques projets sur lesquels j'ai travaillé.";
 
 export const metadata = createMetadata({
   title,
@@ -66,7 +66,7 @@ export default function ProjectsPage(): React.ReactElement {
             as="h1"
             className="leading-wide tracking-relaxed text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
           >
-            My Projects
+            Mes Projets
           </TextReveal>
 
           <Line className={"mt-16"} />
