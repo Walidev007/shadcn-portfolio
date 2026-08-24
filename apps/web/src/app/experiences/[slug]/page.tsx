@@ -8,10 +8,8 @@ import defaultMdxComponents from "fumadocs-ui/mdx";
 
 import Header from "./header";
 
-export function generateStaticParams({ params }: { params: { slug: string } }) {
-  const { slug } = params;
-  // @ts-expect-error issue with fumadocs
-  return experience.generateParams([slug]);
+export function generateStaticParams() {
+  return experience.generateParams();
 }
 
 export async function generateMetadata(props: {
